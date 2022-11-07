@@ -145,7 +145,34 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'name' => [
+            'required' => 'Nama harus diisi',
+            'unique' => 'Nama ini sudah digunakan',
+        ],
+        'no_telp' => [
+            'required' => 'Nomor Telepon harus diisi',
+            'numeric' => 'Nomor harus berupa angka'
+        ],
+        'email' => [
+            'required' => 'Email harus diisi',
+            'unique' => 'Email ini sudah digunakan',
+        ],
+        'username' => [
+            'required' => 'username harus diisi',
+            'unique' => 'username ini sudah digunakan',
+        ],
+        'password' => [
+            'required' => 'password harus diisi',
+        ],
+        'role_id' => [
+            'required' => 'Posisi harus diisi',
+        ],
+        'foto' => [
+            'required' => 'foto harus diisi',
+        ],
+
     ],
+
 
     /*
     |--------------------------------------------------------------------------

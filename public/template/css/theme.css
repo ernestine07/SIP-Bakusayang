@@ -49,7 +49,7 @@ Notes:	decreasing heading by 0.4em with every subsequent heading level
 }
 
 ul {
-    margin: 0;
+    margin: 0
 }
 
 button,
@@ -138,6 +138,7 @@ h4 {
 
 h5 {
     font-size: 15px;
+    color: #010202;
 }
 
 h6 {
@@ -264,6 +265,7 @@ section {
     padding: 0 35px;
 }
 
+
 /* ----- Page Wrapper----- */
 /*Override Grid Bootstrap*/
 @media (min-width: 1200px) {
@@ -275,19 +277,19 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
-    background: #e5e5e5;
-    padding-bottom: 8vh;
+    background: #05595B;
+    padding-bottom: 20vh;
 }
 
 @media (max-width: 991px) {
     .page-wrapper {
-    overflow: auto;
-    background: #e5e5e5;
+    overflow: hidden;
+    background: #062C30;
     padding-bottom: 12vh;
 }
 }
 .page-container {
-    background: #e5e5e5;
+    background: #E2D784;
     padding-left: 300px;
 }
 
@@ -328,12 +330,12 @@ section {
 }
 
 .page-content--bgf7 {
-    background: #f7f7f7;
+    background: #062C30;
 }
 
 .page-content--bge5 {
-    background: #e5e5e5;
-    height: 100vh;
+    background: #05595B;
+    overflow: auto;
 }
 
 .login-wrap {
@@ -385,7 +387,7 @@ section {
 }
 
 .login-content {
-    background: #fff;
+    background: #E2D784;
     padding: 30px 30px 20px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -396,6 +398,8 @@ section {
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
     padding: 20px 0px;
+    overflow: hidden;
+
 }
 
 .register-link {
@@ -1182,7 +1186,7 @@ section {
 
 /* ----- Header ----- */
 .header-desktop {
-    background: #f5f5f5;
+    background: #E2D784;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -1582,12 +1586,12 @@ section {
     left: 0;
     top: 0;
     bottom: 0;
-    background: #fff;
+    background: #05595B;
     overflow-y: auto;
 }
 
 .menu-sidebar .logo {
-    background: #f5f5f5;
+    background: #E2D784;
     height: 75px;
     padding: 0 35px;
     display: -webkit-box;
@@ -1631,7 +1635,7 @@ section {
 
 .navbar-sidebar .navbar__list li a {
     display: block;
-    color: #555;
+    color: #E2D784;
     font-size: 16px;
     padding: 15px 0;
 }
@@ -1657,6 +1661,7 @@ section {
     top: 0;
     left: 0;
     right: 0;
+    background: #E2D784;
 }
 
 .header-mobile .header-mobile__bar {
@@ -1687,7 +1692,7 @@ section {
     padding: 0;
     line-height: 1;
     vertical-align: top;
-    background: #fff;
+    background: #05595B;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -1739,7 +1744,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list {
-    background: #f8f8f8;
+    background: #E2D784;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list > li > a {
@@ -1753,7 +1758,7 @@ section {
     padding-right: 25px;
     padding-left: 0;
     border-bottom: 1px solid #e6e6e6;
-    text-transform: capitalize;
+    text-transform : capitalize;
     line-height: inherit;
 }
 
@@ -3188,7 +3193,7 @@ section {
 
 @media (min-width: 992px) and (max-width: 1199px) {
     .overview-box .icon {
-        margin-right: 3px;
+        margin-right: 5px;
     }
 
     .overview-box .icon i {
@@ -3266,6 +3271,25 @@ section {
     border-radius: 10px;
     background: #fff;
     overflow: hidden;
+}
+
+.card-menu {
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
+    padding: 10px;
+    padding-right: 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: rgba(245, 245, 245, 0.363);
+    backdrop-filter: transparent(14px);
+    overflow: hidden;
+    margin: 10px;
+}
+
+.btn-primary {
+    background-color: #05595B
 }
 
 .au-card--border {
@@ -4633,7 +4657,7 @@ section {
 }
 
 .table-data-feature .item:last-child {
-    margin-right: 0;
+    margin-right: auto;
 }
 
 .table-data-feature .item i {
@@ -14649,3 +14673,4 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+
