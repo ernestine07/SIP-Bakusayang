@@ -64,7 +64,6 @@
                                                         <span class="au-checkmark"></span>
                                                     </label>
                                                 </td>
-
                                                 <td>
                                                     <img src="{{asset('storage/'.$value->foto)}}" width="60" height="30" alt="foto">
                                                 </td>

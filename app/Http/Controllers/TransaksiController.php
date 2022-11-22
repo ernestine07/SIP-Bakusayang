@@ -121,5 +121,4 @@ class TransaksiController extends Controller
         // return view('transaksi.order', $data);
         // return view('cart.index');
     }
-
 }

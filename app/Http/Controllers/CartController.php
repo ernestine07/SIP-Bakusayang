@@ -30,7 +30,8 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+        $data = Cart::all();
+        return view('Cart.index', compact('data'));
     }
 
     /**
@@ -41,7 +42,21 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'cc-exp' => 'required',
+            'menu_id' => 'required',
+            'qty' => 'required',
+        ]);
+
+
+        $data = Cart::create([
+            'tanggal'=>$request->tanggal,
+            'menu_id'=>$request->menu_id,
+            'qty'=>$request->qty,
+        ]);
+
+        return view('Cart.index', compact($data));
+        // return redirect()->route('Cart.index')->with('success','Selamat, cart berhasil dibuat');
     }
 
     /**

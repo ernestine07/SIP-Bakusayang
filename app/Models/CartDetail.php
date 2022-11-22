@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -9,13 +9,14 @@ class CartDetail extends Model
 {
     protected $table = 'cart_detail';
     protected $fillable = [
-        'produk_id',
-        'cart_id',
-        'qty',
-        'harga',
-        'diskon',
-        'subtotal',
-    ];
+            'user_id',
+            'menu_id',
+            'status_cart',
+            'status_pembayaran',
+            'total',
+            'diskon',
+            'subtotal'
+        ];
 
     public function cart() {
         return $this->belongsTo('App\Cart', 'cart_id');

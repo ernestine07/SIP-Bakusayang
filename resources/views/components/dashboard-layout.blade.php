@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css">
+
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="{{asset('template/viewport')}}" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,6 +32,8 @@
 
     <!-- Main CSS-->
     <link href="{{asset('template/css/theme.css')}}" rel="stylesheet" media="all">
+    <!--midtrans client key-->
+
 
 </head>
 
@@ -37,6 +42,7 @@
         @include('Layouts.navbar')
         {{$slot}}
     </div>
+
 
 {{-- <!--logout modal -->
 <div class="modal fade" id="LogoutModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
@@ -62,6 +68,9 @@
 </div>
 <!-- end logout  modal --> --}}
 
+
+ <!--export data tabel-->
+
  <!-- Jquery JS-->
  <script src="{{asset('template/vendor/jquery-3.2.1.min.js')}}"></script>
  <!-- Bootstrap JS-->
@@ -85,6 +94,27 @@
 
  <!-- Main JS-->
  <script src="{{asset('template/js/main.js')}}"></script>
+
+ <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $('#data_user').DataTable( {
+		        dom: 'Bfrtip',
+		        buttons: [
+		             'excel',
+		        ]
+		    } );
+		} );
+	</script>
 
 </body>
 

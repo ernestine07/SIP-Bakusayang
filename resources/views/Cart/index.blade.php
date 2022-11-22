@@ -19,17 +19,17 @@
                                 <div class="card-header">
                                     <h2>Keranjang</h2>
                                     <div class="card-body">
-                                        <form method="post" action="{{route('Datauser.store')}}" enctype="multipart/form-data">
+                                        <form method="post" action="{{route('Cart.store')}}" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Tanggal<sup class="text-danger">*</sup></label>
                                                 </div>
                                                 <div class="col-4">
-                                                    <input id="cc-exp" name="cc-exp" type="tel" class="form-control cc-exp" value="" placeholder="DD / MM / YY" autocomplete="cc-exp">
-                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    <input id="tanggal" name="tanggal" type="date" class="form-control tanggal" value="" placeholder="DD / MM / YY" autocomplete="tanggal">
+                                                        <span class="help-block" data-valmsg-for="tanggal" data-valmsg-replace="true"></span>
                                                     <div class="text-danger">
-                                                        @error('name')
+                                                        @error('tanggal')
                                                             {{ $message }}
                                                         @enderror
                                                     </div>
@@ -38,11 +38,17 @@
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Menu<sup class="text-danger">*</sup></label>
+
                                                 </div>
                                                 <div class="col-12 col-md-9">
-                                                    <input type="text" id="text-input" name="username" placeholder="Text" class="form-control">
+                                                    <select id="select" class="form-control" name="menu_id" required value="{{old('menu_id')}}">
+                                                        <option value="">--Pilih--</option>
+                                                        @foreach($data as $key => $value)
+                                                        <option value="{{$value->menu->id}}">{{$value->menu->nama_menu}}</option>
+                                                        @endforeach
+                                                    </select>
                                                     <div class="text-danger">
-                                                        @error('username')
+                                                        @error('menu_id')
                                                             {{ $message }}
                                                         @enderror
                                                     </div>
@@ -53,9 +59,9 @@
                                                     <label for="text-input" class=" form-control-label">Qty<sup class="text-danger">*</sup></label>
                                                 </div>
                                                 <div class="col-2">
-                                                    <input type="number" id="text-input" name="email" placeholder="0" class="form-control">
+                                                    <input type="number" id="text-input" name="qty" placeholder="0" class="form-control">
                                                     <div class="text-danger">
-                                                        @error('email')
+                                                        @error('qty')
                                                             {{ $message }}
                                                         @enderror
                                                     </div>
@@ -159,7 +165,7 @@
                                                 </div>
 
                                                 <div>
-                                                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <button id="pay-button" type="submit" class="btn btn-lg btn-info btn-block">
                                                         <span id="payment-button-amount">Bayar</span>
                                                         <span id="payment-button-sending" style="display:none;">Sending…</span>
                                                     </button>

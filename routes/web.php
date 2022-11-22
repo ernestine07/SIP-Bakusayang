@@ -12,6 +12,7 @@ use App\Http\Controllers\AsetController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartDetailController;
+use App\Http\Controllers\MidtransController;
 // use App\Http\Controllers\tesController;
 
 /*
@@ -88,17 +89,10 @@ Route::group(['middleware' => ['auth','cekrole:Admin,Kasir,Dapur,Aset']], functi
     Route::get('kategori/{kategori}/list', [MenuController::class, 'kategori'])->name('menu.kategori');
     Route::resource('transaksi', TransaksiController::class);
     Route::resource('Cart', CartController::class);
-    // Route::get('/cart', [CartController::class, 'index'])->name('Cart.index');
-    // Route::post('/tambah-transaksi-post', [CartController::class, 'create'])->name('Cart');
-    // Route::patch('kosongkan/{id}', 'CartController@kosongkan');
-    // cart detail
-    // Route::resource('cartdetail', 'CartDetailController');
-    // Route::get('/cart/tambah/{id}', "CartController@do_tambah_cart")->where("id","[0-9]+");
+    Route::post('/tambah-aset-post', [AsetController::class, 'store'])->name('aset');
 
 });
 
-
-// Route::get('checkout', 'CartController@checkout');
 
 Route::get('storage/', function($image = null)
 {
@@ -107,56 +101,8 @@ Route::get('storage/', function($image = null)
     return response($file, 200)->header('Content-Type', $mimetype);
 });
 
-// Route::get('/menu', function () {
-//     return view('menu');
-// });
-
-// Route::get('/menu_nonkopi', function () {
-//     return view('menu_nonkopi');
-// });
-
-// Route::get('/menu_kopi', function () {
-//     return view('menu_kopi');
-// });
-
-// Route::get('/makanan_ringan', function () {
-//     return view('makanan_ringan');
-// });
-
-
-// Route::get('/login_pegawai', function () {
-//     return view('login_pegawai');
-// });
-
-// Route::get('/lupa_password', function () {
-//     return view('lupa_password');
-// });
-
-// Route::get('/tambah_menu', function () {
-//     return view('tambah_menu');
-// });
-
-// Route::get('/tambahpegawai', function () {
-//     return view('tambahpegawai');
-// });
-
-// Route::get('/transaksi', function () {
-//     return view('transaksi');
-// });
-
-// Route::get('/form_transaksi', function () {
-//     return view('form_transaksi');
-// });
-
-
-
-// Route::group(['middleware' => ['auth', 'cekrole:Dapur, Kasir, Aset']], function(){
-
-//     Route::resource('Dashboard', DashboardController::class);
-// });
-
-
-
+Route::get('/transaksi', [MidtransController::class, 'index'])->name('tansaksi');
+Route::resource('cart', CartDetailController::class);
 
 
 

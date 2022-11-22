@@ -109,6 +109,11 @@
                                         <button type="submit" class="btn btn-primary btn-sm">
                                             <i class="fa fa-plus"></i> Tambah
                                         </button>
+                                        <a href="{{route('pegawai.index')}}">
+                                            <button type="button" class="btn btn-danger btn-sm">
+                                                Batal
+                                            </button>
+                                            </a>
                                     </div>
                                 </form>
                             </div>

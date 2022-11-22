@@ -11,6 +11,7 @@ class Aset extends Model
     public $table = "asets";
     protected $fillable = [
         'nama_barang',
-        'stok'
+        'stok',
+        'tanggal'
     ];
 }

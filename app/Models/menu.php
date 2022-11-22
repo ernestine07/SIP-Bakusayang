@@ -17,4 +17,7 @@ class menu extends Model
         'harga',
         'foto_produk'
     ];
+    public function cart (){
+        return $this->hasMany('App\Models\Cart', 'cart_id');
+    }
 }

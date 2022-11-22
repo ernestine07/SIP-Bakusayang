@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\CartDetail;
+use App\Models\CartDetail;
 use App\Models\menu;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Event\ViewEvent;
 
 class CartDetailController extends Controller
 {
@@ -16,7 +17,7 @@ class CartDetailController extends Controller
      */
     public function index()
     {
-        return abort('404');
+        return View ('Cart.index');
     }
 
     /**

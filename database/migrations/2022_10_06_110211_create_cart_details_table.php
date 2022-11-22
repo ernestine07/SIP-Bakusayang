@@ -15,13 +15,14 @@ class CreateCartDetailsTable extends Migration
     {
         Schema::create('cart_details', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('menu_id')->unsigned();
-            $table->bigInteger('cart_id')->unsigned();
-            $table->double('qty', 12, 2)->default(0);
-            $table->double('harga', 12, 2)->default(0);
+            $table->string('status_cart');// ada 2 yaitu cash atau e-money
+            $table->string('status_pembayaran');// ada 2 sudah dan belum
+            $table->double('total', 12, 2)->default(0);
             $table->double('diskon', 12, 2)->default(0);
             $table->double('subtotal', 12, 2)->default(0);
-            $table->foreign('cart_id')->references('id')->on('cart');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('menu_id')->references('id')->on('menu');
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ class CreateAsetsTable extends Migration
             $table->id();
             $table->string('nama_barang');
             $table->string('stok');
+            $table->timestamp('tanggal')->nullable();
             $table->timestamps();
         });
     }

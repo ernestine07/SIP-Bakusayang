@@ -19,82 +19,60 @@
                             <!-- DATA TABLE -->
                             <h3 class="title-5 m-b-35">Data Barang</h3>
                             <div class="table-data__tool">
-                                <div class="table-data__tool-left">
-                                    <div class="rs-select2--light rs-select2--sm">
-                                        <select class="js-select2" name="time">
-                                            <option selected="selected">Today</option>
-                                            <option value="">3 Days</option>
-                                            <option value="">1 Week</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
                                 <div class="table-data__tool-right">
-                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
-                                    <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                                        <select class="js-select2" name="type">
-                                            <option selected="selected">Export</option>
-                                            <option value="">Option 1</option>
-                                            <option value="">Option 2</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
+                                    <a href="{{route('Aset.create')}}">
+                                    <button type="button" class="btn btn-primary">
+                                        <i class="zmdi zmdi-plus"></i> tambah </button></a>
                                 </div>
                             </div>
                             <div class="table-responsive table-data">
-                                <table class="table table-data2">
+                                <table class="table" id="data_user">
                                     <thead>
                                         <tr>
-                                            <th>Kode</th>
-                                            <th>Nama Barang</th>
-                                            <th>Stok</th>
-                                            <th>date</th>
-                                            <th>status</th>
-                                            <th></th>
+                                            <td>Nama Barang</td>
+                                            <td>Stok</td>
+                                            <td>Tanggal</td>
+                                            {{-- <td></td> --}}
+                                            <td></td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="tr-shadow">
-                                            <td>01</td>
-                                            <td>Sirup</td>
-                                            <td class="desc">12</td>
-                                            <td>2018-09-27 02:12</td>
+                                        @foreach ($data as $key => $value)
+                                        <tr>
                                             <td>
-                                                <span class="status--process">Aman</span>
+                                                <div class="table-data__info">
+                                                    <h5>{{$value->nama_barang}}</h5>
+                                                </div>
                                             </td>
                                             <td>
+                                                <div class="table-data__info">
+                                                    <h6>{{$value->stok}}</h6>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="table-data__info">
+                                                    <h6>{{$value->tanggal}}</h6>
+                                                </div>
+                                            </td>
+                                            {{-- <td>
+                                                <span class="role admin">{{$value->nama_role}}</span>
+                                            </td> --}}
+                                            <td>
                                                 <div class="table-data-feature">
+                                                    <form action="{{route('Aset.edit', $value->id)}}">
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                         <i class="zmdi zmdi-edit"></i>
-                                                    </button>
+                                                    </button></form>
+                                                    <form action="{{route('Aset.destroy', $value->id)}}" method="POST" enctype="multipart/form-data">
+                                                        @method('DELETE')
+                                                        @csrf
                                                     <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                         <i class="zmdi zmdi-delete"></i>
-                                                    </button>
+                                                    </button></form>
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr class="spacer"></tr>
-                                        <tr class="tr-shadow">
-                                            <td>01</td>
-                                            <td>Sirup</td>
-                                            <td class="desc">12</td>
-                                            <td>2018-09-27 02:12</td>
-                                            <td>
-                                                <span class="status--process">Aman</span>
-                                            </td>
-                                            <td>
-                                                <div class="table-data-feature">
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                        <i class="zmdi zmdi-edit"></i>
-                                                    </button>
-                                                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <i class="zmdi zmdi-delete"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr class="spacer"></tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -104,6 +82,8 @@
                 </div>
             </div>
         </div>
+
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
+
 </x-dashboard-layout>

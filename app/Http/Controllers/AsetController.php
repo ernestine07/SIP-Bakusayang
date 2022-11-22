@@ -27,7 +27,8 @@ class AsetController extends Controller
      */
     public function create()
     {
-        //
+        $data = Aset::all();
+        return view('Aset.tambah_barang',compact('data'));
     }
 
     /**
@@ -38,7 +39,21 @@ class AsetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'tanggal'=> 'required',
+        //     'nama_barang'=>'required',
+        //     'stok'=>'required'
+        // ]);
+
+        $data = Aset::create([
+            'nama_barang'=>$request->aset,
+            'stok'=>$request->qty,
+            'tanggal'=>$request->tanggal
+        ]);
+
+
+        return redirect()->route('Aset.index')->with('success','Selamat, data barang berhasil dibuat');
+
     }
 
     /**
@@ -60,7 +75,8 @@ class AsetController extends Controller
      */
     public function edit($id)
     {
-        //
+        $aset = Aset::where('id', $id)->first();
+        return view('Aset.edit', compact('aset'));
     }
 
     /**
@@ -72,7 +88,15 @@ class AsetController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $aset = Aset::where('id', $id)->first();
+
+        $asetupdate =Aset::where('id' ,$id)->update ([
+            'tanggal'=>$request->tanggal,
+            'nama_barang'=>$request->aset,
+            'stok'=>$request->qty
+        ]);
+
+        return redirect()->route('Aset.index')->with('success', 'Data Barang berhasil diubah');
     }
 
     /**
@@ -83,6 +107,10 @@ class AsetController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Aset::where('id', $id)->first();
+
+        $data->delete();
+
+        return redirect()->route('Aset.index')->with('success','Data Barang berhasil dihapus');
     }
 }
