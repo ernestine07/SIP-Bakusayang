@@ -13,6 +13,8 @@ use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CartDetailController;
 use App\Http\Controllers\MidtransController;
+use App\Http\Controllers\KritikController;
+use App\Http\Controllers\LaporanController;
 // use App\Http\Controllers\tesController;
 
 /*
@@ -88,11 +90,15 @@ Route::group(['middleware' => ['auth','cekrole:Admin,Kasir,Dapur,Aset']], functi
     Route::resource('Aset', AsetController::class);
     Route::get('kategori/{kategori}/list', [MenuController::class, 'kategori'])->name('menu.kategori');
     Route::resource('transaksi', TransaksiController::class);
-    Route::resource('Cart', CartController::class);
+    Route::resource('midtrans', MidtransController::class);
+    // Route::resource('Cart', CartController::class);
+    // Route::resource('Pesan', KritikController::class);
     Route::post('/tambah-aset-post', [AsetController::class, 'store'])->name('aset');
-
+    Route::resource('laporan', LaporanController::class);
 });
 
+Route::resource('Cart', CartController::class);
+Route::resource('Pesan', KritikController::class);
 
 Route::get('storage/', function($image = null)
 {
@@ -105,4 +111,6 @@ Route::get('/transaksi', [MidtransController::class, 'index'])->name('tansaksi')
 Route::resource('cart', CartDetailController::class);
 
 
-
+Route::get('/test', function () {
+    return view('test');
+});

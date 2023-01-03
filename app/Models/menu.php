@@ -18,6 +18,8 @@ class menu extends Model
         'foto_produk'
     ];
     public function cart (){
-        return $this->hasMany('App\Models\Cart', 'cart_id');
+        return $this->hasMany('App\Models\Cart', 'cart_id', 'id');
     }
+
+
 }

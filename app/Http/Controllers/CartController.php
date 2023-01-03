@@ -20,7 +20,20 @@ class CartController extends Controller
     public function index(Request $request)
     {
         $data = Cart::all();
-        return view('Cart.index',compact('data'));
+        $menu = menu::all();
+        return view('Cart.index',compact('data', 'menu'));
+    }
+
+    public function cart($menu)
+    {
+        $menu = Cart::leftjoin('menu','menu.id', 'cart.menu_id')
+                        ->select('cart.*', 'menu.nama_menu')
+                        ->where('menu.nama_menu', '=', $menu)
+                        ->get();
+
+        // $menu = Kategori::where('nama_kategori', $kategori)->first();
+        // dd($menu);
+        return view('Cart.index' ,compact('menu'));
     }
 
     /**
@@ -30,8 +43,9 @@ class CartController extends Controller
      */
     public function create()
     {
+        $menu = menu::all();
         $data = Cart::all();
-        return view('Cart.index', compact('data'));
+        return view('Cart.index', compact('menu', 'data'));
     }
 
     /**
@@ -43,17 +57,23 @@ class CartController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'cc-exp' => 'required',
+            'tanggal' => 'required',
             'menu_id' => 'required',
+            'nama_cust' => 'required',
             'qty' => 'required',
+            'total'=> 'required',
         ]);
 
 
         $data = Cart::create([
             'tanggal'=>$request->tanggal,
             'menu_id'=>$request->menu_id,
+            'nama_cust'=>$request->nama_cust,
             'qty'=>$request->qty,
+            'total'=> $request->qty * $request->menu_id->harga,
         ]);
+
+        // return dd($data);
 
         return view('Cart.index', compact($data));
         // return redirect()->route('Cart.index')->with('success','Selamat, cart berhasil dibuat');
@@ -102,5 +122,12 @@ class CartController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function kosongkan($id) {
+        $itemcart = Cart::findOrFail($id);
+        $itemcart->detail()->delete();//semua item di cart detail
+        $itemcart->updatetotal($itemcart, '-'.$itemcart->subtotal);
+        return back()->with('success', 'Cart berhasil dikosongkan');
     }
 }

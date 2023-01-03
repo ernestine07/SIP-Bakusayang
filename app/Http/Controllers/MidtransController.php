@@ -32,6 +32,6 @@ class MidtransController extends Controller
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
         // return $snapToken;
-        return view ('Cart.index', ['Token'=>$snapToken]);
+        return view ('Transaksi.index', ['Token'=>$snapToken]);
     }
 }

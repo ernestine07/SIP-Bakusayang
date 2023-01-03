@@ -31,11 +31,15 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="{{route('Cart.index')}}">
+                                <i class="fa fa-shopping-cart"></i>Keranjang</a>
+                        </li>
+                        <li>
                             <a href="{{url('transaksi')}}">
                             <i class="fas fa-credit-card"></i>Transaksi</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('Pesan.index')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
                         </li>
                         <li>
@@ -70,7 +74,7 @@
                                 <i class="fas fa-credit-card"></i>Transaksi</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('Pesan.index')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
                         </li>
                         <li>
@@ -123,7 +127,7 @@
                                 <i class="fas fa-bullhorn"></i>Laporan</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('Pesan.index')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
                         </li>
                         <li>
@@ -154,7 +158,7 @@
                             <i class="fas fa-home"></i>Barang</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('Pesan.index')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
                         </li>
                         <li>
@@ -211,7 +215,7 @@
                                 <i class="fa fa-shopping-cart"></i>Keranjang</a>
                         </li>
                         <li>
-                            <a href="{{url('transaksi')}}">
+                            <a href="{{route('midtrans.index')}}">
                                 <i class="fas fa-credit-card"></i>Transaksi</a>
                         </li>
                         <li>
@@ -219,11 +223,11 @@
                                 <i class="fas fa-list-alt"></i>Data User</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('laporan.index')}}">
                                 <i class="fas fa-bullhorn"></i>Laporan</a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="{{route('Pesan.index')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
                         </li>
                         <li>

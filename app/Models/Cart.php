@@ -12,17 +12,23 @@ class Cart extends Model
     protected $fillable = [
         'menu_id',
         'qty',
-        // 'harga',
-        'diskon',
-        'subtotal',
+        'nama_cust',
+        'total',
     ];
 
     protected $guarded = [
         'id'
     ];
     public function menu (){
-        return $this->belongsTo('App\Models\menu', 'menu_id');
+        return $this->belongsTo('App\Models\menu', 'menu_id', 'id');
+        // return $this->hasMany(menu::class);
     }
+
+    public function harga (){
+        return $this->belongsTo('App\Models\menu', 'menu_id', 'id');
+        // return $this->hasMany(menu::class);
+    }
+
     public function user() {
         return $this->belongsTo('App\Models\User','user_id');
     }
@@ -31,9 +37,5 @@ class Cart extends Model
     //     return $this->hasMany('App\Models\CartDetail', 'cart_id');
     // }
 
-    // public function updatetotal($itemcart, $subtotal) {
-    //     $this->attributes['subtotal'] = $itemcart->subtotal + $subtotal;
-    //     $this->attributes['total'] = $itemcart->total + $subtotal;
-    //     self::save();
-    // }
+
 }

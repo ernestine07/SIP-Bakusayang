@@ -24,30 +24,11 @@
                                     </button>
                             </div>
                             <!-- USER DATA-->
-                            <div class="user-data m-b-30">
-                                <div class="filters m-b-45">
-                                    <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
-                                        <select class="js-select2" name="property">
-                                            <option selected="selected">Semua</option>
-                                            <option value="">Admin</option>
-                                            <option value="">Kasir</option>
-                                            <option value="">Dapur</option>
-                                            <option value="">Aset</option>
-                                            <option value="">Pemilik</option>
-                                        </select>
-                                        <div class="dropDownSelect2"></div>
-                                    </div>
-                                </div>
+                            {{-- <div class="user-data m-b-30"> --}}
                                 <div class="table-responsive table-data">
-                                    <table class="table">
+                                    <table class="table" id="data_user">
                                         <thead>
                                             <tr>
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
                                                 <td>foto</td>
                                                 <td>name</td>
                                                 <td>no telp</td>
@@ -58,12 +39,6 @@
                                         <tbody>
                                             @foreach ($pegawai as $key => $value)
                                             <tr>
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
                                                 <td>
                                                     <img src="{{asset('storage/'.$value->foto)}}" width="60" height="30" alt="foto">
                                                 </td>
@@ -104,7 +79,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                             <!-- END USER DATA-->
                         </div>
                     </div>

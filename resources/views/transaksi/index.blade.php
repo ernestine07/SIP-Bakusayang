@@ -26,33 +26,36 @@
                                     <th></th>
                                   </tr>
                                 </thead>
+                                @foreach ($params as $item)
                                 <tbody>
-                                  <tr>
-                                    <td>
-                                      1
-                                    </td>
-                                    <td>
-                                      Inv-01
-                                    </td>
-                                    <td>
-                                      12/10/2022
-                                    </td>
-                                    <td>
-                                      227.000
-                                    </td>
-                                    <td>
-                                      Belum dibayar
-                                    </td>
-                                    <td>
-                                      <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
-                                        Detail
-                                      </a>
-                                      <a href="{{ route('transaksi.edit', 1) }}" class="btn btn-sm btn-primary mb-2">
-                                        Edit
-                                      </a>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                                    <tr>
+                                      <td>
+                                        {{$item->$menu_id}}
+                                      </td>
+                                      <td>
+                                        Inv-01
+                                      </td>
+                                      <td>
+                                        12/10/2022
+                                      </td>
+                                      <td>
+                                        {{$item->amount}}
+                                      </td>
+                                      <td>
+                                        {{$data->status}}
+                                      </td>
+                                      <td>
+                                        <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
+                                          Detail
+                                        </a>
+                                        <a href="{{ route('transaksi.edit', 1) }}" class="btn btn-sm btn-primary mb-2">
+                                          Edit
+                                        </a>
+                                      </td>
+                                    </tr>
+                                  </tbody>
+                                @endforeach
+
                               </table>
                             </div>
                           </div>

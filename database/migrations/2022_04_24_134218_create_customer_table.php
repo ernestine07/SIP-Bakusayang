@@ -19,10 +19,10 @@ class CreateCustomerTable extends Migration
             $table->enum('jeniskelamin', ['Laki-laki', 'Perempuan']);
             $table->string('alamat');
             $table->string('no_telepon');
-            $table->bigInteger('user_id')->unsigned();;
+            $table->bigInteger('users_id')->unsigned();;
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

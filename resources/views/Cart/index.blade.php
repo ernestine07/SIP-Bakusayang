@@ -37,21 +37,30 @@
                                             </div>
                                             <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Menu<sup class="text-danger">*</sup></label>
-
+                                                    <label for="text-input" class=" form-control-label">Nama Customer<sup class="text-danger">*</sup></label>
                                                 </div>
-                                                <div class="col-12 col-md-9">
-                                                    <select id="select" class="form-control" name="menu_id" required value="{{old('menu_id')}}">
-                                                        <option value="">--Pilih--</option>
-                                                        @foreach($data as $key => $value)
-                                                        <option value="{{$value->menu->id}}">{{$value->menu->nama_menu}}</option>
-                                                        @endforeach
-                                                    </select>
+                                                <div class="col-4">
+                                                    <input type="text" id="text-input" name="name" placeholder="Text" class="form-control">
                                                     <div class="text-danger">
-                                                        @error('menu_id')
+                                                        @error('name')
                                                             {{ $message }}
                                                         @enderror
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Menu<sup class="text-danger">*</sup></label>
+                                                </div>
+                                                <div class="col-4">
+                                                    <select id="select" class="form-control" name="menu_id" required value="{{old('menu_id')}}">
+                                                        <option value="">--Pilih--</option>
+                                                        @foreach($menu as $key => $value)
+                                                        <option value="{{$value->id}}">
+                                                            <img src= "{{asset('storage/'. $value->foto_produk)}}">
+                                                            {{$value->nama_menu}}</option>
+                                                    @endforeach
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row form-group">
@@ -87,35 +96,40 @@
                                                         <td>Qty</td>
                                                         <td>Harga</td>
                                                         <td>Total</td>
-                                                        {{-- <td></td> --}}
+                                                        <td>Status Cart</td>
                                                     </tr>
                                                 </thead>
+                                                @foreach ($data as $value)
                                                 <tbody>
-                                                    {{-- @foreach ($data as $key => $value) --}}
                                                     <tr>
                                                         <td>
                                                             <div class="table-data__info">
-                                                                <h6>12-Nov-2022</h6>
+                                                                <h6>{{$value->created_at}}</h6>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="table-data__info">
-                                                                <h6>kopi</h6>
+                                                                <h6>{{$value->menu->nama_menu}}</h6>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="table-data__info">
-                                                                <h6>5</h6>
+                                                                <h6>{{$value->qty}}</h6>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="table-data__info">
-                                                                <h6>18.000</h6>
+                                                                <h6>{{$value->menu->harga}}</h6>
                                                             </div>
                                                         </td>
                                                         <td>
                                                             <div class="table-data__info">
-                                                                <h6>90.000</h6>
+                                                                <h6>>{{ $value->qty * $value->menu->harga  }}</h6>
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            <div class="table-data__info">
+                                                                <h6>{{$value->status_cart}}</h6>
                                                             </div>
                                                         </td>
                                                         <td>
@@ -130,15 +144,15 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    {{-- @endforeach --}}
                                                 </tbody>
+                                                @endforeach
                                             </table>
                                         </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- END USER DATA-->
-                                <div class="col col-lg-4 col-md-4">
+                                {{-- <div class="col col-lg-4 col-md-4">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-title">
@@ -173,7 +187,18 @@
                                             </form>
                                         </div>
                                     </div>
-                                  </div>
+                                </div> --}}
+                                <div class="col col-lg-4 col-md-4">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <button id="pay-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <span id="payment-button-amount">Bayar</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

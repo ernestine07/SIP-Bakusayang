@@ -22,5 +22,13 @@ class MenuSeeder extends Seeder
         'harga'=> '18.000',
         'foto_produk' => ''
         ]);
+        Menu::create([
+            'kode_menu'=> '002',
+            'kode_barang'=> 'mn02',
+            'nama_menu'=>'Kopi Caramel',
+            'kategori_id' => 1,
+            'harga'=> '18.000',
+            'foto_produk' => ''
+            ]);
     }
 }
