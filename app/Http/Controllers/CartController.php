@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\menu;
+use App\Models\Transaksi;
 use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +22,9 @@ class CartController extends Controller
     {
         $data = Cart::all();
         $menu = menu::all();
-        return view('Cart.index',compact('data', 'menu'));
+        $totalSubTotal = Cart::get()->sum('total');
+        // dd($total);
+        return view('Cart.index',compact('data', 'menu','totalSubTotal'));
     }
 
     public function cart($menu)
@@ -56,27 +59,19 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'tanggal' => 'required',
-            'menu_id' => 'required',
-            'nama_cust' => 'required',
-            'qty' => 'required',
-            'total'=> 'required',
-        ]);
-
-
+        $menu = menu::where('id', $request->menu_id)->first();
         $data = Cart::create([
             'tanggal'=>$request->tanggal,
             'menu_id'=>$request->menu_id,
             'nama_cust'=>$request->nama_cust,
             'qty'=>$request->qty,
-            'total'=> $request->qty * $request->menu_id->harga,
+            'status_cart'=>$request->status_cart,
+            'status_order'=>$request->status_order,
+            'total'=> $request->qty * $menu->harga,
         ]);
 
-        // return dd($data);
-
-        return view('Cart.index', compact($data));
-        // return redirect()->route('Cart.index')->with('success','Selamat, cart berhasil dibuat');
+        // return view('Cart.index', compact($data))->with('success','Selamat, cart berhasil dibuat');
+        return back()->with('success','Selamat, menu berhasil ditambahkan');
     }
 
     /**
@@ -121,13 +116,80 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Cart::where('id',$id)->first();
+        $data->delete();
+        return redirect()->route('Cart.index')->with('success','list menu berhasil dihapus');
     }
 
-    public function kosongkan($id) {
-        $itemcart = Cart::findOrFail($id);
-        $itemcart->detail()->delete();//semua item di cart detail
-        $itemcart->updatetotal($itemcart, '-'.$itemcart->subtotal);
-        return back()->with('success', 'Cart berhasil dikosongkan');
+    public function cartcustomer(Request $request)
+    {
+        $menu = menu::all();
+        $data = Cart::all();
+        $totalSubTotal = Cart::get()->sum('total');
+        // dd($total);
+        return view('Customer.cart',compact('data', 'menu','totalSubTotal'));
+    }
+    
+    public function createcart(Request $request)
+    {
+        $menu = menu::where('id', $request->menu_id)->first();
+        $data = Cart::create([
+            'tanggal'=>$request->tanggal,
+            'menu_id'=>$request->menu_id,
+            'nama_cust'=>$request->nama_cust,
+            'qty'=>$request->qty,
+            'status_cart'=>$request->status_cart,
+            'status_order'=>$request->status_order,
+            'total'=> $request->qty * $menu->harga,
+        ]);
+        // dd($data);
+        // return view('Cart.index', compact('data', 'menu'));
+        return back()->with('success','Selamat, menu berhasil ditambahkan');
+    }
+
+    public function destroycart($id)
+    {
+        $data = Cart::where('id',$id)->first();
+        $data->delete();
+        return back()->with('success','list menu berhasil dihapus');
+    }
+
+    public function tambahpesanan(Request $request)
+    {
+        $record = Transaksi::latest()->first();
+        // dd($record);
+        if ($record == null or $record == "") {
+            if (date('l', strtotime(date('Y-01-01')))) {
+                $invoiceno = date('Y') . '-0001';
+            }
+        } else {
+            $expNum = explode('-', $record->no_invoice);
+            $innoumber = ($expNum[1] + 1);
+            $invoiceno = $expNum[0] . '-' . sprintf('%04d', $innoumber);
+        }
+
+        $cartList = null;
+        $dataCart = Cart::all();
+        // dd($dataCart);
+        foreach ($dataCart as $item) {
+            $cartList[] = [$item->menu->nama_menu,$item->qty, $item->menu->harga];
+            Cart::find($item->id)->delete();
+        }
+        // dd($cartList);
+        $cart = Transaksi::create([
+            'no_invoice' => $invoiceno,
+            'users_id' => Auth::user()->id,
+            'menu' => $cartList,
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'status_pembayaran' => 'Pending',
+            'status_order' => $request->status_order,
+            // 'diskon' => $request->diskon,
+            'subtotal' => $request->subtotal
+        ]);
+        $detail = Transaksi::all();
+
+        // return view ('transaksi.edit', compact('detail'));
+        return back()->with('success','Selamat, pesanan berhasil dibuat');
+
     }
 }

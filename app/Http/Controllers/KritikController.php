@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kritik;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class KritikController extends Controller
@@ -14,8 +16,14 @@ class KritikController extends Controller
      */
     public function index()
     {
-        $data = Kritik::all();
-        return view('Pesan.index', compact('data'));
+        $data = Kritik::leftjoin('users','users.id', 'kritik.users_id')
+                ->select('kritik.*', 'users.name')
+                ->get();
+        $user = User::where('id', Auth::user()->id)->first();
+
+
+
+        return view('Pesan.index', compact('data','user'));
     }
 
     /**
@@ -37,7 +45,10 @@ class KritikController extends Controller
      */
     public function store(Request $request)
     {
+        $user = User::where('id', Auth::user()->id)->first();
         $data = Kritik::create([
+            'tanggal'=>$request->tanggal,
+            'users_id'=>$user->id,
             'pesan'=>$request->pesan
         ]);
 

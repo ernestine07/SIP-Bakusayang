@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------
+/* ------------------------------------------------------------------
 [Master Stylesheet]
 
 Project:  CoolAdmin
@@ -280,6 +280,10 @@ section {
     overflow: hidden;
     background: #05595B;
     padding-bottom: 20vh;
+}
+
+.landing-page{
+    background: #E2D784;
 }
 
 @media (max-width: 991px) {
@@ -1403,7 +1407,10 @@ section {
 }
 
 .account-wrap {
-    position: relative;
+    position: absolute;
+    /* top: 10px; */
+    right: 5px;
+
 }
 
 .account-item {
@@ -3158,27 +3165,27 @@ section {
 }
 
 .overview-item--c1 {
-    background-image: -moz-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
-    background-image: -webkit-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
-    background-image: -ms-linear-gradient(90deg, #3f5efb 0%, #fc466b 100%);
+    background-image: -moz-linear-gradient(90deg, #11998e 0%, #05595B 100%);
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #05595B 100%);
+    background-image: -ms-linear-gradient(90deg, #11998e     0%, #05595B 100%);
 }
 
 .overview-item--c2 {
-    background-image: -moz-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-    background-image: -ms-linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+    background-image: -moz-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -webkit-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -ms-linear-gradient(90deg, #05595B 0%, #11998e 100%);
 }
 
 .overview-item--c3 {
-    background-image: -moz-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    background-image: -webkit-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
-    background-image: -ms-linear-gradient(90deg, #ee0979 0%, #ff6a00 100%);
+    background-image: -moz-linear-gradient(90deg,  #11998e 0%, #05595B 100%);
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #05595B 100%);
+    background-image: -ms-linear-gradient(90deg, #11998e 0%, #05595B 100%);
 }
 
 .overview-item--c4 {
-    background-image: -moz-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-    background-image: -webkit-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
-    background-image: -ms-linear-gradient(90deg, #45b649 0%, #dce35b 100%);
+    background-image: -moz-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -webkit-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -ms-linear-gradient(90deg, #05595B 0%, #11998e 100%);
 }
 
 .overview-box .icon {
@@ -3275,6 +3282,8 @@ section {
 }
 
 .card-menu {
+    /* width: 200px;
+    height: 310px; */
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 2);
@@ -4638,6 +4647,7 @@ section {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
+    /* position: absolute; */
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -moz-box-pack: end;
@@ -14688,3 +14698,9 @@ section {
 .vue-lists ul, .vue-lists ol {
     padding-left: 30px;
 }
+
+
+
+
+
+

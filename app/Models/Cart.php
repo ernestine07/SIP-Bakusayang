@@ -12,7 +12,8 @@ class Cart extends Model
     protected $fillable = [
         'menu_id',
         'qty',
-        'nama_cust',
+        // 'nama_cust',
+        // 'status_cart',
         'total',
     ];
 

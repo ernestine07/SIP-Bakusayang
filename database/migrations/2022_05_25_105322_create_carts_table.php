@@ -17,10 +17,10 @@ class CreateCartsTable extends Migration
             $table->id();
             $table->bigInteger('menu_id')->unsigned();
             $table->float('qty', 12, 2)->default(0);
-            $table->double('diskon', 12, 2)->default(0);
+            // $table->double('diskon', 12, 2)->default(0);
             $table->double('total', 12, 2)->default(0);
-            $table->string('nama_cust'); // nama pelanggan yang pesan
-            $table->string('status_cart'); // ada 2 yaitu cart, checkout
+            // $table->string('nama_cust')->nullable(); // nama pelanggan yang pesan
+            // $table->string('status_cart')->nullable(); // ada 2 yaitu cart, checkout
             $table->foreign('menu_id')->references('id')->on('menu');
             $table->timestamps();
         });

@@ -19,7 +19,7 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        $pegawai = Pegawai::leftjoin('users','users.id', 'pegawai.user_id')
+        $pegawai = Pegawai::leftjoin('users','users.id', 'pegawai.users_id')
                             ->leftjoin('role','role.id', 'users.role_id')
                             ->select('pegawai.*', 'role.nama_role')
                             ->get();
@@ -73,7 +73,7 @@ class PegawaiController extends Controller
         $pegawai = Pegawai::create([
             'nama_pegawai'=>$request->name,
             'no_telp'=>$request->no_telp,
-            'user_id'=>$user->id,
+            'users_id'=>$user->id,
             'foto'=>$namafile_fotopegawai,
         ]);
 
@@ -104,7 +104,7 @@ class PegawaiController extends Controller
     {
         $role = Role::all();
         $pegawai = Pegawai::where('id', $id)->first();
-        $user = User::where('id' ,$pegawai->user_id)->first();
+        $user = User::where('id' ,$pegawai->users_id)->first();
         return view('pegawai.edit', compact('pegawai', 'role', 'user'));
     }
 
@@ -117,19 +117,21 @@ class PegawaiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // $request->validate([
+        //     'name' => 'unique:pegawai,nama_pegawai',
+        //     'no_telp' => 'numeric',
+        //     'email' => 'unique:users,email',
+        //     'username' => 'unique:users,username',
+        //     // 'password' => 'required',
+        //     // 'role_id' => 'required',
+        //     // 'foto' => 'required',
+        // ]);
+
         $pegawai = Pegawai::where('id',$id)->first();
-        $user = User::where('id' ,$pegawai->user_id)->first();
+        $user = User::where('id', $pegawai->users_id)->first();
         $role = Role::where('id', $request->role_id)->first();
 
-        $request->validate([
-            'name' => 'required|unique:pegawai,nama_pegawai',
-            'no_telp' => 'required|numeric',
-            'email' => 'required|unique:users,email',
-            'username' => 'required|unique:users,username',
-            'password' => 'required',
-            'role_id' => 'required',
-            'foto' => 'required',
-        ]);
+
 
         if($request->hasFile('foto')){
             $fotopegawai = $request->file('foto');
@@ -143,7 +145,7 @@ class PegawaiController extends Controller
         }
 
 
-        $userupdate = User::where('id' ,$pegawai->user_id)->update([
+        $userupdate = User::where('id' ,$pegawai->users_id)->update([
             'name'=>$request->name,
             'username'=>$request->username,
             'email'=>$request->email,
@@ -152,14 +154,13 @@ class PegawaiController extends Controller
             'role_id'=>$role->id,
         ]);
 
-        $pegawaiupdate = Pegawai::where('id' ,$user->id)->update([
+        $pegawaiupdate = Pegawai::where('id' ,$id)->update([
             'nama_pegawai'=>$request->name,
             'no_telp'=>$request->no_telp,
-            'user_id'=>$user->id,
+            'users_id'=>$user->id,
             // 'posisi'=>$request->posisi,
             'foto'=>$namafile_fotopegawai,
         ]);
-
 
         return redirect()->route('pegawai.index')->with('success','Data Pegawai berhasil diubah');
     }
@@ -173,7 +174,7 @@ class PegawaiController extends Controller
     public function destroy($id)
     {
         $pegawai = Pegawai::where('id',$id)->first();
-        $user = User::where('id',$pegawai->user_id)->first();
+        $user = User::where('id',$pegawai->users_id)->first();
         $fotopegawai_path = public_path("Storage/{$pegawai->foto}");
         if (File::exists($fotopegawai_path)){
             unlink($fotopegawai_path);

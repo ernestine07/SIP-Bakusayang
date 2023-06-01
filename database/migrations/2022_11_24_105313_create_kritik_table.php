@@ -15,8 +15,12 @@ class CreateKritikTable extends Migration
     {
         Schema::create('kritik', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('users_id')->unsigned();
             $table->string('pesan');
+            $table->date('tanggal');
             $table->timestamps();
+
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

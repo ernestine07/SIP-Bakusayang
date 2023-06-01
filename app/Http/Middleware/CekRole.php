@@ -28,15 +28,27 @@ class CekRole
     //     }
     //     return redirect()->back()->with('error',"Anda tidak dapat mengakses halaman ini");
     // }
+
+
     public function handle($request, Closure $next, ...$roles)
     {
         if ($role = auth()->user()->role) {
             foreach ($roles as $key => $value) {
                 if ($role->nama_role == $value) {
+                    // dd($role, $value);
                     return $next($request);
                 }
             }
         }
         return redirect()->back()->with('error', 'Anda tidak dapat mengakses halaman ini');
     }
+
+    // public function handle(Request $request, Closure $next, ...$roles)
+    // {
+    //     if (Auth::check() && in_array(Auth::user()->role, $roles)) {
+    //         return $next($request);
+    //     }
+
+    //     return redirect()->back()->with('error', 'Anda tidak dapat mengakses halaman ini.');
+    // }
 }

@@ -17,11 +17,12 @@ class CreatePegawaisTable extends Migration
             $table->id();
             $table->string('nama_pegawai');
             $table->string('no_telp');
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigInteger('users_id')->unsigned();
+            // $table->string('posisi');
             $table->string('foto');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

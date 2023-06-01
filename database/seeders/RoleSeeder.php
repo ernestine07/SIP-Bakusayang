@@ -23,9 +23,9 @@ class RoleSeeder extends Seeder
             'nama_role' => 'Customer'
         ]);
         // 3
-        Role::create([
-            'nama_role' => 'Dapur'
-        ]);
+        // Role::create([
+        //     'nama_role' => 'Dapur'
+        // ]);
         // 4
         Role::create([
             'nama_role' => 'Kasir'

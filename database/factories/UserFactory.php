@@ -4,6 +4,13 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use Faker\Generator as Faker;
+
+// $factory->define(UserModel::class, function (Faker $faker) {
+//     return [
+//         'name' => $faker->words(3, true)
+//     ];
+// });
 
 class UserFactory extends Factory
 {

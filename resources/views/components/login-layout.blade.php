@@ -41,10 +41,11 @@
             <div class="container justify-content-center align-items-center h-100">
                 {{$slot}}
             </div>
-        </div>
-
+            <div class="container justify-content-center align-items-center h-100">
+                <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by Ernestine Zefanya</div></div>
+            </div>
+        </div>  
     </div>
-
     <!-- Jquery JS-->
     <script src="{{asset('template/vendor/jquery-3.2.1.min.js')}}"></script>
     <!-- Bootstrap JS-->
@@ -68,6 +69,7 @@
 
     <!-- Main JS-->
     <script src="{{asset('template/js/main.js')}}"></script>
+    
 
 </body>
 

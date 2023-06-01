@@ -39,21 +39,35 @@ class MenuController extends Controller
     public function menu_customer()
     {
         $data = menu::all();
+        // dd($data);
         return view('Customer.menu',compact('data'));
     }
 
     public function kategoricustomer($kategori)
     {
+        $menu = Kategori::where('nama_kategori', $kategori)->first();
+
         $menucustomer = menu::leftjoin('kategoris','kategoris.id', 'menu.kategori_id')
                         ->select('menu.*', 'kategoris.nama_kategori')
                         ->where('kategoris.nama_kategori', '=', $kategori)
                         ->get();
 
-        // $menu = Kategori::where('nama_kategori', $kategori)->first();
-        // dd($menu);
-        return view('Customer.menu_kategori' ,compact('menucustomer'));
+        // dd($menucustomer);
+        return view('Customer.menu_kategori' ,compact('menucustomer', 'menu'));
     }
 
+    public function kategorikasir($kategori)
+    {
+        $menu = Kategori::where('nama_kategori', $kategori)->first();
+
+        $menucustomer = menu::leftjoin('kategoris','kategoris.id', 'menu.kategori_id')
+                        ->select('menu.*', 'kategoris.nama_kategori')
+                        ->where('kategoris.nama_kategori', '=', $kategori)
+                        ->get();
+
+        // dd($menucustomer);
+        return view('Customer.menu_kategori' ,compact('menucustomer', 'menu'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -80,10 +94,7 @@ class MenuController extends Controller
         $namafile_fotomenu = uniqid(). 'menu_'.$fotomenu->getClientOriginalName();
         $fotomenu->move(public_path('Storage/'), $namafile_fotomenu);
 
-
         $data = menu::create([
-            'kode_menu'=>$request->kodemenu,
-            'kode_barang'=>$request->kodebarang,
             'nama_menu'=>$request->menu,
             'kategori_id'=>$kategori->id,
             'harga'=>$request->harga,
@@ -144,8 +155,6 @@ class MenuController extends Controller
         }
 
         $data=menu::where('id' ,$id)->update([
-            'kode_menu'=>$request->kodemenu,
-            'kode_barang'=>$request->kodebarang,
             'nama_menu'=>$request->menu,
             'kategori_id'=>$kategori->id,
             'harga'=>$request->harga,
@@ -172,4 +181,6 @@ class MenuController extends Controller
         $data->delete();
         return redirect()->route('menu.index')->with('success','Data menu berhasil dihapus');
     }
+
+    
 }

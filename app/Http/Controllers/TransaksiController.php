@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\menu;
 use App\Models\Cart;
-use App\Models\Order;
-use Midtrans\Transaction;
-
-use function GuzzleHttp\Promise\all;
+use App\Models\Laporan;
+use App\Models\Transaksi;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -16,54 +16,11 @@ class TransaksiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        // $itemuser = $request->user();
-        // if ($itemuser->role == 'admin') {
-        //     // kalo admin maka menampilkan semua cart
-        //     $itemorder = Order::whereHas('cart', function($q) use ($itemuser) {
-        //                     $q->where('status_cart', 'checkout');
-        //                 })
-        //                 ->orderBy('created_at', 'desc')
-        //                 ->paginate(20);
-        // } else {
-        //     // kalo member maka menampilkan cart punyanya sendiri
-        //     $itemorder = Order::whereHas('cart', function($q) use ($itemuser) {
-        //                     $q->where('status_cart', 'checkout');
-        //                     $q->where('user_id', $itemuser->id);
-        //                 })
-        //                 ->orderBy('created_at', 'desc')
-        //                 ->paginate(20);
-        // }
-        // $data = array('title' => 'Data Transaksi',
-        //             'itemorder' => $itemorder,
-        //             'itemuser' => $itemuser);
-        // return view('transaksi.index', $data)->with('no', ($request->input('page', 1) - 1) * 20);
-       // Set your Merchant Server Key
-       \Midtrans\Config::$serverKey = 'SB-Mid-server-_ASo-C2HohkhKjJlVM89-QMJ';
-       // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-       \Midtrans\Config::$isProduction = false;
-       // Set sanitization on (default)
-       \Midtrans\Config::$isSanitized = true;
-       // Set 3DS transaction for credit card to true
-       \Midtrans\Config::$is3ds = true;
-
-       $params = array(
-           'transaction_details' => array(
-               'order_id' => rand(),
-               'gross_amount' => 10000,
-           ),
-           'customer_details' => array(
-               'first_name' => 'budi',
-               'last_name' => 'pratama',
-               'email' => 'budi.pra@example.com',
-               'phone' => '08111222333',
-           ),
-       );
-
-       $snapToken = \Midtrans\Snap::getSnapToken($params);
-       // return $snapToken;
-       return view ('Transaksi.index', ['Token'=>$snapToken]);
+        $detail = Transaksi::where('status_pembayaran','!=', 'Lunas')->get();
+        // dd($detail);
+        return View ('transaksi.index', compact('detail'));
     }
 
     /**
@@ -84,47 +41,82 @@ class TransaksiController extends Controller
      */
     public function store(Request $request)
     {
-        $itemuser = $request->user();
-        $itemcart = Cart::where('status_cart', 'cart')
-                        ->where('user_id', $itemuser->id)
-                        ->first();
-        if ($itemcart) {
-                $itemcart->update(['status_cart' => 'checkout']);
-                return redirect()->route('transaksi.index')->with('success', 'Order berhasil disimpan');
+        $record = Transaksi::latest()->first();
+        // dd($record);
+        if ($record == null or $record == "") {
+            if (date('l', strtotime(date('Y-01-01')))) {
+                $invoiceno = date('Y') . '-0001';
+            }
         } else {
-            return abort('404');//kalo ternyata ga ada shopping cart, maka akan menampilkan error halaman tidak ditemukan
+            $expNum = explode('-', $record->no_invoice);
+            $innoumber = ($expNum[1] + 1);
+            $invoiceno = $expNum[0] . '-' . sprintf('%04d', $innoumber);
         }
+
+        $cartList = null;
+        $dataCart = Cart::all();
+        // dd($dataCart);
+        foreach ($dataCart as $item) {
+            $cartList[] = [$item->menu->nama_menu,$item->qty, $item->menu->harga];
+            Cart::find($item->id)->delete();
+        }
+        // dd($cartList);
+        $cart = Transaksi::create([
+            'no_invoice' => $invoiceno,
+            'users_id' => Auth::user()->id,
+            'menu' => $cartList,
+            'nama_pelanggan' => $request->nama_pelanggan,
+            'status_pembayaran' => 'Pending',
+            'status_order' => $request->status_order,
+            'diskon' => $request->diskon,
+            'subtotal' => $request->subtotal
+        ]);
+        $detail = Transaksi::all();
+
+        // return view ('transaksi.edit', compact('detail'));
+        return back()->with('success','Selamat, pesanan berhasil dibuat');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $data = array('title' => 'Detail Transaksi');
-        return view('transaksi.show', $data);
+        $data = Transaksi::all();
+        $data2= Transaksi::where('id', $id)->first();
+
+        // dd($data);
+        return view('transaksi.detail', compact('data', 'data2'));
     }
 
+    public function cetak($id)
+    {
+        $data = Transaksi::all();
+        $data2= Transaksi::where('id', $id)->first();
+
+// dd($data);
+        return view('transaksi.cetak_struk', compact('data', 'data2'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request, $id)
+    public function edit($id)
     {
-        $data = array('title' => 'Form Edit Transaksi');
-        return view('transaksi.edit', $data);
+        //
     }
-
+  
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -135,18 +127,48 @@ class TransaksiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        $detail = Transaksi::where('id',$id)->first();
+        $detail->delete();
     }
 
-    public function order()
+    public function selesai($id)
     {
-        // $data = array('title' => 'Order');
-        // return view('transaksi.order', $data);
-        // return view('cart.index');
+        Transaksi::where('id' ,$id)->update([
+            'status_pembayaran'=>'Lunas',
+        ]);
+        
+        return back()->with('success','Pesanan Selesai');
     }
+
+    // public function selesaikasir($id)
+    // {
+    //     Transaksi::where('id' ,$id)->update([
+    //         'status_pembayaran'=>'Lunas',
+    //     ]);
+    //     return back()->with('success','Pesanan Selesai');
+    // }
+
+    public function transaksicustomer()
+    {
+        // $data = Transaksi::getByAccount(1);
+        $detail = Transaksi::where('users_id',Auth::user()->id)->get();
+        // dd($detail);
+        return View ('Customer.transaksi', compact('detail'));
+    }
+
+    public function detailtransaksicustomer($id)
+    {
+        // $data = Transaksi::getByAccount(1);
+        $data = Transaksi::all();
+        $data2= Transaksi::where('id', $id)->first();
+
+        // dd($data);
+        return view('Customer.detailtransaksi', compact('data', 'data2'));
+    }
+
 }

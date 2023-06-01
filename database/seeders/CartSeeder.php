@@ -14,14 +14,14 @@ class CartSeeder extends Seeder
      */
     public function run()
     {
-        Cart::create([
-        'menu_id' => 1,
-        'qty' => '2',
-        'nama_cust' => 'bambang',
-        'status_cart' => 'pending',
-        // 'harga' => '36000',
-        // 'diskon' => '0',
-        // 'subtotal' => '36000',
-        ]);
+        // Cart::create([
+        // 'menu_id' => 1,
+        // 'qty' => '2',
+        // 'nama_cust' => 'bambang',
+        // 'status_cart' => 'pending',
+        // // 'harga' => '36000',
+        // // 'diskon' => '0',
+        // // 'subtotal' => '36000',
+        // ]);
     }
 }

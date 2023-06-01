@@ -15,20 +15,16 @@ class MenuSeeder extends Seeder
     public function run()
     {
         Menu::create([
-        'kode_menu'=> '001',
-        'kode_barang'=> 'mn01',
         'nama_menu'=>'Kopi Hazlenut',
         'kategori_id' => 1,
-        'harga'=> '18.000',
-        'foto_produk' => ''
+        'harga'=> '18000',
+        'foto_produk' => asset('template/images/icon/Kopi Hazelnut.png')
         ]);
         Menu::create([
-            'kode_menu'=> '002',
-            'kode_barang'=> 'mn02',
-            'nama_menu'=>'Kopi Caramel',
-            'kategori_id' => 1,
-            'harga'=> '18.000',
-            'foto_produk' => ''
-            ]);
+        'nama_menu'=>'Kopi Caramel',
+        'kategori_id' => 1,
+        'harga'=> '18000',
+        'foto_produk' => asset('template/images/icon/Kopi Caramel.png')
+        ]);
     }
 }

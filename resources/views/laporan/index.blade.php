@@ -1,93 +1,93 @@
-<title>Laporan Penjualan</title>
+<title>Laporan</title>
 
 <x-dashboard-layout>
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+        <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <div class="header-button">
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#">{{Auth::user()->name}}</a>
+                                                    <a href="#">{{Auth::user()->role->nama_role}}</a>
+                                                </h5>
+                                                <span class="email">{{Auth::user()->email}}</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+                                            <div class="account-dropdown__item">
+                                                <a href="#">
+                                                    <form action="/" method="POST">
+                                                        @csrf                                                    
+                                                        <button type="submit" onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                                                        <i class="zmdi zmdi-money-box"></i>
+                                                            Logout
+                                                        </button>
+                                                    </form>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
         <!-- Main content -->
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
+                    <div class="card-header">
+                    <h2>Daftar Laporan</h2>
+                    </div>
                     <div class="row">
-                    <div class="col">
-                        <div class="card card-primary card-outline">
-                        <div class="card-header">
-                            <h3 class="card-title">Laporan Penjualan</h3>
-                            <div class="card-tools">
-                            {{-- <a href="{{ URL('admin/laporan') }}" class="btn btn-sm btn-danger"> --}}
-                                Tutup
-                            </a>
+                    <div class="col col-lg-4 col-md-4">
+                        <div class="card-menu">
+                            <div class="card-header">
+                                <strong><h4>KEUANGAN</h4></strong>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ route('laporan.proses_keuangan')}}">
+                                <button type="button" class="btn btn-primary btn-sm">Buka</button>
+                                </a>
                             </div>
                         </div>
-                        <div class="card-body">
-                            {{-- <h3 class="text-center">Periode {{ $bulan != ""? "Bulan ".$bulan: "" }} {{ $tahun }}</h3> --}}
-                            <div class="row">
-                            <div class="col col-lg-4 col-md-4">
-                                <h4 class="text-center">Ringkasan Transaksi</h4>
-                                <!-- cetak totalnya -->
-                                <?php
-                                // $total = 0;
-                                // foreach ($itemtransaksi as $k) {
-                                // $total += $k->cart->total;
-                                // }
-                                ?>
-                                <!-- end cetak totalnya -->
-                                <table class="table table-bordered">
-                                <tbody>
-                                    <tr>
-                                    <td>Total Penjualan</td>
-                                    {{-- <td>Rp. {{ number_format($total, 2) }}</td> --}}
-                                    </tr>
-                                    <tr>
-                                    <td>Total Transaksi</td>
-                                    {{-- <td>{{ count($itemtransaksi) }} Transaksi</td> --}}
-                                    </tr>
-                                </tbody>
-                                </table>
+                        <div class="card-menu">
+                            <div class="card-header">
+                                <strong><h4>PENJUALAN</h4></strong>
                             </div>
-                            <div class="col col-lg-8 col-md-8">
-                                <h4 class="text-center">Rincian Transaksi</h4>
-                                <div class="table-responsive">
-                                <table class="table table-stripped">
-                                    <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Invoice</th>
-                                        <th>Subtotal</th>
-                                        <th>Ongkir</th>
-                                        <th>Diskon</th>
-                                        <th>Total</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {{-- @foreach($itemtransaksi as $transaksi) --}}
-                                    <tr>
-                                        {{-- <td>{{ $no++ }}</td> --}}
-                                        <td>
-                                        {{-- {{ $transaksi->cart->no_invoice }} --}}
-                                        </td>
-                                        <td>
-                                        {{-- {{ number_format($transaksi->cart->subtotal, 2) }} --}}
-                                        </td>
-                                        <td>
-                                        {{-- {{ number_format($transaksi->cart->ongkir, 2) }} --}}
-                                        </td>
-                                        <td>
-                                        {{-- {{ number_format($transaksi->cart->diskon, 2) }} --}}
-                                        </td>
-                                        <td>
-                                        {{-- {{ number_format($transaksi->cart->total, 2) }} --}}
-                                        </td>
-                                    </tr>
-                                    {{-- @endforeach --}}
-                                    </tbody>
-                                </table>
-                                </div>
-                            </div>
+                            <div class="card-body">
+                                <a href="{{ route('laporan.penjualan')}}">
+                                <button type="button" class="btn btn-primary btn-sm">Buka</button> 
+                                </a>
                             </div>
                         </div>
+                        <div class="card-menu">
+                            <div class="card-header">
+                                <strong><h4>STOK BARANG</h4></strong>
+                            </div>
+                            <div class="card-body">
+                                <a href="{{ route('laporan.stok_barang')}}">
+                                <button type="button" class="btn btn-primary btn-sm">Buka</button> 
+                                </a>
+                            </div>
                         </div>
                     </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 </x-dashboard-layout>
 

@@ -1,8 +1,60 @@
 <title>Transaksi</title>
 
 <x-dashboard-layout>
+    <div class="page-container">
+      <!-- HEADER DESKTOP-->
+      <header class="header-desktop">
+          <div class="section__content section__content--p30">
+              <div class="container-fluid">
+                  <div class="header-wrap">
+                      <div class="header-button">
+                          <div class="account-wrap">
+                              <div class="account-item clearfix js-item-menu">
+                                  <div class="content">
+                                      <a class="js-acc-btn" href="#">{{Auth::user()->name}}</a>
+                                  </div>
+                                  <div class="account-dropdown js-dropdown">
+                                      <div class="info clearfix">
+                                          <div class="content">
+                                              <h5 class="name">
+                                                  <a href="#">{{Auth::user()->name}}</a>
+                                                  <a href="#">{{Auth::user()->role->nama_role}}</a>
+                                              </h5>
+                                              <span class="email">{{Auth::user()->email}}</span>
+                                          </div>
+                                      </div>
+                                      <div class="account-dropdown__body">
+                                          <div class="account-dropdown__item">
+                                              <a href="#">
+                                                  <form action="/" method="POST">
+                                                      @csrf                                                    
+                                                      <button type="submit" onclick="return confirm('Apakah Anda yakin ingin keluar?')">
+                                                      <i class="zmdi zmdi-money-box"></i>
+                                                          Logout
+                                                      </button>
+                                                  </form>
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </header>
         <!-- Main content -->
         <div class="main-content">
+          @if ($message = Session::get('success'))
+            <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+                <span class="badge badge-pill badge-success">Success</span>
+                {{ $message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+          @endif
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
@@ -10,7 +62,7 @@
                         <div class="card">
                           <div class="card-header">
                             <h3 class="card-title">
-                              Data Transaksi
+                              Daftar Pesanan
                             </h3>
                           </div>
                           <div class="card-body">
@@ -19,43 +71,51 @@
                                 <thead>
                                   <tr>
                                     <th>No</th>
-                                    <th>Invoice</th>
+                                    <th>Nama </th>
                                     <th>Tanggal</th>
                                     <th>Total</th>
-                                    <th>Status Pembayaran</th>
+                                    <th>Status Orderan</th>
                                     <th></th>
                                   </tr>
                                 </thead>
-                                @foreach ($params as $item)
+                                @foreach ($detail as $item)
                                 <tbody>
                                     <tr>
                                       <td>
-                                        {{$item->$menu_id}}
+                                        {{ $item->no_invoice }}
                                       </td>
                                       <td>
-                                        Inv-01
+                                        {{$item->nama_pelanggan}}
                                       </td>
                                       <td>
-                                        12/10/2022
+                                        {{$item->created_at->format('d/m/Y')}}
                                       </td>
                                       <td>
-                                        {{$item->amount}}
+                                        {{$item->subtotal}}
                                       </td>
                                       <td>
-                                        {{$data->status}}
+                                        {{$item->status_order}}
                                       </td>
                                       <td>
-                                        <a href="{{ route('transaksi.show', 1) }}" class="btn btn-sm btn-info mb-2">
+                                        <a href="{{route('transaksi.show', $item->id)}}">
+                                        <button type="button" class="btn btn-info mb-1" >
                                           Detail
-                                        </a>
-                                        <a href="{{ route('transaksi.edit', 1) }}" class="btn btn-sm btn-primary mb-2">
-                                          Edit
-                                        </a>
+                                        </button></a>
+
+                                          <a href="{{route('selesai', $item->id)}}" class="btn btn-primary mb-1">
+                                            Selesai
+                                          </a>
+                                        </form>                                           
+                                        <form action="{{route('transaksi.destroy', $item->id)}}" method="POST" enctype="multipart/form-data">
+                                          @method('DELETE')
+                                          @csrf
+                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                          <i class="zmdi zmdi-delete"></i>
+                                        </button>
                                       </td>
                                     </tr>
                                   </tbody>
                                 @endforeach
-
                               </table>
                             </div>
                           </div>
@@ -65,4 +125,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-dashboard-layout>

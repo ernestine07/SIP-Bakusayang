@@ -99,13 +99,13 @@ class DatauserController extends Controller
         $user = User::where('id' ,$id)->first();
         $role = Role::where('id',$request->role_id)->first();
 
-        $request->validate([
-            'name' => 'required|unique:pegawai,nama_pegawai',
-            'username' => 'required|unique:users,username',
-            'email' => 'required|unique:users,email',
-            'password' => 'required',
-            'role_id' => 'required',
-        ]);
+        // $request->validate([
+        //     'name' => 'required|unique:pegawai,nama_pegawai',
+        //     'username' => 'required|unique:users,username',
+        //     'email' => 'required|unique:users,email',
+        //     'password' => 'required',
+        //     'role_id' => 'required',
+        // ]);
 
         $userupdate = User::where('id' ,$id)->update([
             'name'=>$request->name,
@@ -115,7 +115,6 @@ class DatauserController extends Controller
             'role_id'=>$role->id,
         ]);
         return redirect()->route('Datauser.index')->with('success','Data User berhasil diubah');
-
     }
 
     /**
