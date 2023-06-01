@@ -1,4 +1,4 @@
-<x-dashboard-layout>
+<x-new-dashboard-layout>
     <div class="page-container">
         <!-- HEADER DESKTOP-->
         <header class="header-desktop">
@@ -190,4 +190,4 @@
         <!-- END MAIN CONTENT-->
         <!-- END PAGE CONTAINER-->
     </div>
-</x-dashboard-layout>
+</x-new-dashboard-layout>

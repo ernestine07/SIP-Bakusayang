@@ -47,6 +47,10 @@ Route::get('/cetak', function () {
     return view('transaksi.cetak_struk');
 });
 
+Route::get('/new-dashboard', function () {
+    return view('NewDashboard');
+});
+
 
 
 
