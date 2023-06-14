@@ -118,7 +118,7 @@ Route::group(['middleware' => ['auth','cekrole:Pemilik']], function(){
 });
 
 
-// admin
+// admin dan Aset
 
 Route::group(['middleware' => ['auth','cekrole:Admin,Aset']], function(){
     // Route::get('/Dashboard', [DashboardController::class, 'index'])->name('Dashboard.index');
@@ -137,7 +137,6 @@ Route::group(['middleware' => ['auth','cekrole:Admin,Aset']], function(){
     Route::get('proses', [LaporanController::class, 'proseskeuangan'])->name('laporan.proses_keuangan');
     Route::get('penjualan', [LaporanController::class, 'prosespenjualan'])->name('laporan.penjualan');
     Route::get('stok', [LaporanController::class, 'stokbarang'])->name('laporan.stok_barang');
-
 });
 
 Route::get('storage/', function($image = null)

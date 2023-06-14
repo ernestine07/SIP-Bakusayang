@@ -68,7 +68,7 @@
                                         @csrf                                    
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class="form-control-label">Nama Menu</label>
+                                                <label for="text-input" class="form-control-label">Nama Menu<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="text-input" name="menu" class="form-control">
@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Kategori</label>
+                                                <label for="select" class=" form-control-label">Kategori<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <select id="select" class="form-control" name="kategori_id" required value="{{old('kategori_id')}}">
@@ -89,7 +89,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class="form-control-label">Harga</label>
+                                                <label for="text-input" class="form-control-label">Harga<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="text-input" name="harga" class="form-control">
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="file-input" class="form-control-label">Foto Produk</label>
+                                                <label for="file-input" class="form-control-label">Foto Produk<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="file" id="file-input" name="foto" class="form-control-file">

@@ -64,7 +64,7 @@ class DashboardController extends Controller
                 $totalqty = $item[1] + $totalqty;
             }
         }
-        dd($totalpenjualan);
+        // dd($totalpenjualan);
         return view('Dashboard.index', compact('total', 'penjualan', 'totalpenjualan', 'totalqty'));
     }
 

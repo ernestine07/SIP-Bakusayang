@@ -60,7 +60,7 @@
                                         @csrf
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Nama Menu</label>
+                                                <label for="text-input" class=" form-control-label">Nama Menu<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="text-input" name="menu" required value="{{$data->nama_menu}}" class="form-control">
@@ -68,7 +68,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="select" class=" form-control-label">Kategori</label>
+                                                <label for="select" class=" form-control-label">Kategori<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <select id="select" class="form-control" name="kategori_id" required value="{{$data->nama_menu}}">
@@ -85,7 +85,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="text-input" class=" form-control-label">Harga</label>
+                                                <label for="text-input" class=" form-control-label">Harga<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="text" id="text-input" name="harga" required value="{{$data->harga}}" class="form-control">
@@ -93,7 +93,7 @@
                                         </div>
                                         <div class="row form-group">
                                             <div class="col col-md-3">
-                                                <label for="file-input" class=" form-control-label">Foto Produk</label>
+                                                <label for="file-input" class=" form-control-label">Foto Produk<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
                                                 <input type="file" id="file-input" name="foto" class="form-control-file" required value="{{ asset('storage/app/public'.$data->foto_produk) }}">
@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="card-footer">
                                             <button type="submit" class="btn btn-primary btn-sm">
-                                                Simpan
+                                                Simpan  
                                             </button>
                                             <a href="{{route('menu.index')}}">
                                             <button type="button" class="btn btn-danger btn-sm">

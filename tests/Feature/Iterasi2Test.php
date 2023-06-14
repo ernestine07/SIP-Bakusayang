@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Kategori;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -22,21 +23,21 @@ class Iterasi2Test extends TestCase
      *
      * @return void
      */
-    // public function test_tambah_kategori()
-    // {
-    //     $kategori = User::where('role_id', '1')->first();   
-    //     $response = $this->actingAs($kategori)
-    //                      ->post(route('Kategori.index'), [
-    //                         'nama_kategori'=>'Makanan Berat',
-    //                      ]);
-    //     $response->assertStatus(302);
-    // }
-
-    public function test_lihat_kategori()
+    public function test_membuat_kategori()
     {
-        $user = User::where('role_id', '1')->first();
+        $role = '1';
+        $kategori = User::where('role_id', $role)->first();   
+        // $response = $this->actingAs($kategori)
+        //                  ->post(route('Kategori.index'), [
+        //                     'nama_kategori'=>'Makanan Berat',
+        //                  ]);
 
-        $response = $this->actingAs($user)->get(url('{data}/kategori'));
+        Kategori::create([
+            'nama_kategori' =>'Makanan Berat',
+        ]);
+        // $response = $this->actingAs($kategori)->post(route('Kategori.index'));
+        $response = $this->actingAs($kategori)->get(route('Kategori.index'));
+        
         $response->assertStatus(200);
     }
 
@@ -48,19 +49,19 @@ class Iterasi2Test extends TestCase
         $response->assertStatus(302);
     }
 
-    // public function test_tambah_user()
-    // {
-    //     $datauser = User::where('role_id', '1')->first();   
-    //     $response = $this->actingAs($datauser)
-    //                      ->post(route('Datauser.store'), [
-                            // 'name'=>'user1',
-                            // 'username'=>'user1',
-                            // 'email'=>'user1@gmail.com',
-                            // 'password' => Hash::make('user1'),
-                            // 'role_id'=>'2',
-    //                      ]);
-    //     $response->assertStatus(302);
-    // }
+    public function test_tambah_user()
+    {
+        $datauser = User::where('role_id', '1')->first();   
+        $response = $this->actingAs($datauser)
+                         ->post(route('Datauser.store'), [
+                            'name'=>'user1',
+                            'username'=>'user1',
+                            'email'=>'user1@gmail.com',
+                            'password' => Hash::make('user1'),
+                            'role_id'=>'2',
+                         ]);
+        $response->assertStatus(302);
+    }
 
     public function test_ubah_user() 
     {

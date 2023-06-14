@@ -88,6 +88,12 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name_menu' => 'required',
+            'kategori_id' => 'required',
+            'harga' => 'required',
+            'foto_produk' => 'required',
+        ]);
 
         $kategori = Kategori::where('id', $request->kategori_id)->first();
         $fotomenu = $request->foto;
@@ -102,7 +108,6 @@ class MenuController extends Controller
         ]);
 
         return redirect()->route('menu.index')->with('success','Selamat, menu berhasil dibuat');
-
     }
 
     /**

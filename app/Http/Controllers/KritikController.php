@@ -21,8 +21,6 @@ class KritikController extends Controller
                 ->get();
         $user = User::where('id', Auth::user()->id)->first();
 
-
-
         return view('Pesan.index', compact('data','user'));
     }
 

@@ -88,26 +88,6 @@ class LaporanController extends Controller
         //
     }
 
-    
-
-    public function keuangan()
-    {
-        // Ambil data transaksi dari tabel transaksi
-        $transaksi = Transaksi::all();
-
-        // Loop data transaksi dan tambahkan ke tabel laporan keuangan
-        foreach ($transaksi as $data) {
-            Laporan::create([
-                'no_invoice' => $data->no_invoice,
-                'tanggal' => $data->tanggal,
-                'diskon' => $data->diskon,
-                'subtotal' => $data->subtotal
-            ]);
-        }
-
-        return "Tabel laporan keuangan telah diisi.";
-    }
-
     public function proseskeuangan(Request $request)
     {
         $data = array('title' => 'Form Laporan Keuangan');
@@ -143,12 +123,6 @@ class LaporanController extends Controller
             }
         }
         return view('laporan.penjualan', compact('total', 'penjualan', 'totalpenjualan', 'totalqty'));
-    }
-
-    public function indexkasir()
-    {
-        $data = array('title' => 'Form Laporan Penjualan');
-        return view('laporan.index', compact('data'));
     }
 
     public function keuangankasir(Request $request)

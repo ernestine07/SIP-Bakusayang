@@ -39,6 +39,7 @@ class AsetController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = Aset::create([
             'nama_barang'=>$request->aset,
             'stok'=>$request->qty,
