@@ -39,9 +39,9 @@ Route::get('/register_customer', function () {
     return view('register_customer');
 });
 
-Route::get('/', function () {
-    return view('Landingpage');
-});
+// Route::get('/', function () {
+//     return view('Landingpage');
+// });
 
 Route::get('/cetak', function () {
     return view('transaksi.cetak_struk');
@@ -59,6 +59,9 @@ Route::get('/reset_password/{token}', [lupapasswordController::class, 'lihatRese
 Route::post('/reset_password', [lupapasswordController::class, 'storeResetPasswordForm'])->name('lihat_reset_password');
 Route::post('/register-post', [AuthController::class, 'register_customer'])->name('auth.register');
 Route::post('/', [AuthController::class, 'logout'])->name('logout');
+Route::get('/', [KritikController::class, 'index'])->name('kritik');
+Route::post('/pesanpost', [KritikController::class, 'store'])->name('store');
+
  
 // SEMUA DASHBOARD SELAIN 
 
@@ -67,11 +70,11 @@ Route::group(['middleware' => ['auth','cekrole:Kasir,Admin,Pemilik,Aset']], func
 });
 
 // SEMUA KRITIK DAN SARAN
-Route::group(['middleware' => ['auth','cekrole:Kasir,Admin,Pemilik,Aset,Customer']], function(){
-    Route::resource('Pesan', KritikController::class);
-    Route::get('/pesan', [KritikController::class, 'index'])->name('kritik');
-    Route::post('/pesanpost', [KritikController::class, 'store'])->name('store');
-});
+// Route::group(['middleware' => ['auth','cekrole:Kasir,Admin,Pemilik,Aset,Customer']], function(){
+//     Route::resource('Pesan', KritikController::class);
+//     Route::get('/pesan', [KritikController::class, 'index'])->name('kritik');
+//     Route::post('/pesanpost', [KritikController::class, 'store'])->name('store');
+// });
 
 //index customer
 

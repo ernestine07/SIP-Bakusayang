@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kritik;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -16,12 +15,15 @@ class KritikController extends Controller
      */
     public function index()
     {
-        $data = Kritik::leftjoin('users','users.id', 'kritik.users_id')
-                ->select('kritik.*', 'users.name')
-                ->get();
-        $user = User::where('id', Auth::user()->id)->first();
+        // $data = Kritik::leftjoin('users','users.id', 'kritik.users_id')
+        //         ->select('kritik.*', 'users.name')
+        //         ->get();
+        // $user = User::where('id', Auth::user()->id)->first();
 
-        return view('Pesan.index', compact('data','user'));
+        $data = Kritik::all();
+
+        return view('Landingpage', compact('data'));
+        // return view('Pesan.index', compact('data','user'));
     }
 
     /**
@@ -31,8 +33,8 @@ class KritikController extends Controller
      */
     public function create()
     {
-        $pesan = Kritik::all();
-        return view('Pesan.index', compact('pesan'));
+        $data = Kritik::all();
+        return view('Landingpage', compact('data'));
     }
 
     /**
@@ -43,14 +45,12 @@ class KritikController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::where('id', Auth::user()->id)->first();
         $data = Kritik::create([
-            'tanggal'=>$request->tanggal,
-            'users_id'=>$user->id,
+            'nama'=>$request->nama,
             'pesan'=>$request->pesan
         ]);
 
-        return redirect()->route('Pesan.index')->with('success','Selamat, pesan berhasil dibuat');
+        return redirect('/')->with('success');
     }
 
     /**

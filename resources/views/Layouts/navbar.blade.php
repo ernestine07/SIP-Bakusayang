@@ -47,10 +47,10 @@
                             <a href="{{route('transaksi')}}">
                                 <i class="fas fa-credit-card"></i>Pesanan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>
@@ -90,10 +90,10 @@
                             <a href="{{route('transaksi')}}">
                                 <i class="fas fa-credit-card"></i>Pesanan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -218,10 +218,10 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>
@@ -273,10 +273,10 @@
                                     </li>
                                 </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -310,10 +310,10 @@
                             <a class="js-arrow" href="{{route('Aset.index')}}">
                             <i class="fas fa-home"></i>Barang</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>
@@ -335,10 +335,10 @@
                             <a class="js-arrow" href="{{route('Aset.index')}}">
                             <i class="fas fa-home"></i>Barang</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -402,10 +402,10 @@
                             <a href="{{route('laporan.index')}}">
                                 <i class="fas fa-bullhorn"></i>Laporan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                             <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>                        
+                        </li>                         --}}
                     </ul>
                 </div>
             </nav>
@@ -455,10 +455,10 @@
                             <a href="{{route('laporan.index')}}">
                                 <i class="fas fa-bullhorn"></i>Laporan</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>
@@ -530,10 +530,10 @@
                                     </li>
                                 </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </div>
             </nav>
@@ -592,10 +592,10 @@
                                     </li>
                                 </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('kritik')}}">
                                 <i class="fa fa-comments"></i>Kritik dan Saran</a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </nav>
             </div>

@@ -10,11 +10,10 @@ class Kritik extends Model
     use HasFactory;
     public $table = "kritik";
     protected $fillable = [
-        'tanggal',
-        'users_id',
+        'nama',
         'pesan'
     ];
-    public function user (){
-        return $this->hasMany('App\Models\User', 'users_id', 'id');
-    }
+    // public function user (){
+    //     return $this->hasMany('App\Models\User', 'users_id', 'id');
+    // }
 }

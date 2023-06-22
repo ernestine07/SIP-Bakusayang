@@ -50,7 +50,8 @@
                     <ul class="navbar-nav ms-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link" href="#utama">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#comment">Komentar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
                     </ul>
                 </div>
             </div>
@@ -58,7 +59,7 @@
         <!-- Masthead-->
         <header class="masthead">
             <div class="container px-4 px-lg-5 h-100">
-                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center" id="utama">
                     <div class="row">
                         <div class="col-md-6">
                             <h1 class="text-white font-weight-bold">Selamat Datang di KopiBakusayang</h1>
@@ -123,7 +124,60 @@
             </div>
         </section> 
         <!-- Contact -->
-        <section class="contact" id="contact">
+        <section class="contact">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center" id="comment">
+                    <div class="row">
+                        <div class="card-header">
+                            <h3>
+                              Kritik dan Saran
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <form method="post" action="{{route('store')}}" enctype="multipart/form-data" id="algin-form">
+                                @csrf
+                                <div class="row form-group">
+                                        <div class="col col-md-3">
+                                            <label for="name">Nama</label>
+                                        </div>
+                                        <div class="col-4">
+                                            <input id="nama" name="nama" type="text" class="form-control "/>
+                                        </div>
+                                </div>
+                                <div class="row form-group">
+                                    <div class="col col-md-3">
+                                        <label for="text-input" class=" form-control-label">Kritik dan Saran<sup class="text-danger">*</sup></label>
+                                    </div>
+                                    <div class="col-4">
+                                        <textarea class="form-control" name="pesan" placeholder="*Silahkan masukkan kritik dan saran anda" id="floatingTextarea"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                     Unggah
+                                </button>
+                            </form>
+                        </div>
+                        <div class="card-header">
+                            <h3>Komentar</h3>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                @foreach ($data as $value)
+                                <div class="comment card-menu">
+                                    <div class="comment mt-4 text-justify float-left">
+                                        <h4>{{$value->nama}}</h4>
+                                        <br>
+                                        <p>{{$value->pesan}}</p>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </section>  
+        <section class="page-section bg-primary" id="contact">
             <div class="container px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-lg-8 text-center">
@@ -142,12 +196,11 @@
                                 <a class="social-media-icon" href="https://link_social_mendia_anda"><span class="fab fa-instagram"></span></a>
                                 <a class="social-media-icon" href="https://link_social_mendia_anda"><span class="fab fa-whatsapp"></span></a>                               
                             </ul>
-                        </div>
-                        {{-- <a class="btn btn-light btn-xl" href="{{url('register_customer')}}">Ayo Register !!</a> --}}
+                        </div>                    
                     </div>
                 </div>
             </div>
-        </section>      
+        </section>     
         <!-- Footer-->
         <footer class="bg-light py-5">
             <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by Ernestine Zefanya</div></div>
