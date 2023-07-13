@@ -62,7 +62,7 @@
                             <div class="card-header">
                                 <h2>Tambah Menu</h2>
                             </div>
-                            <div class="card">
+                            {{-- <div class="card"> --}}
                                 <div class="card-body card-block">
                                     <form action="{{route('menu.store')}}" method="post" enctype="multipart/form-data">
                                         @csrf                                    
@@ -115,7 +115,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>

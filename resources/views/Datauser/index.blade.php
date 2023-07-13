@@ -65,7 +65,7 @@
                                 <div class="card-body">
                                     <button type="button" class="btn btn-primary btn-sm">
                                     <i class="fa fa-plus"></i> <a href="{{route('Datauser.create')}}"> Tambah Data</a>
-                                    </button>
+                                    </button> 
                                 </div>
                                 @endif
                             </div>

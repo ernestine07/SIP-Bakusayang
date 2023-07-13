@@ -20,11 +20,11 @@ class MenuSeeder extends Seeder
         'harga'=> '18000',
         'foto_produk' => asset('template/images/icon/Kopi Hazelnut.png')
         ]);
-        Menu::create([
-        'nama_menu'=>'Kopi Caramel',
-        'kategori_id' => 1,
-        'harga'=> '18000',
-        'foto_produk' => asset('template/images/icon/Kopi Caramel.png')
-        ]);
+        // Menu::create([
+        // 'nama_menu'=>'Kopi Caramel',
+        // 'kategori_id' => 1,
+        // 'harga'=> '18000',
+        // 'foto_produk' => asset('template/images/icon/Kopi Caramel.png')
+        // ]);
     }
 }

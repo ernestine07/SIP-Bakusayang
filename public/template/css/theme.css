@@ -4259,7 +4259,12 @@ section {
 /* ----- Table ----- */
 .table {
     margin: 0;
+    background: #E2D784;
 }
+
+/* tbody {
+    background: #E2D784;
+} */
 
 .table-responsive.table--no-card {
     -webkit-border-radius: 10px;
@@ -4304,17 +4309,17 @@ section {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #fff;
+    background-color: #E2D784;
 }
 
 .table-striped tbody tr:nth-of-type(even) {
-    background-color: #f5f5f5;
+    background-color: #E2D784;
 }
 
 .table-top-countries tbody td {
     white-space: nowrap;
     font-size: 14px;
-    color: #fff;
+    color: #E2D784;
     padding: 14px 5px;
     border-top: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -4395,9 +4400,17 @@ section {
     text-transform: uppercase;
 }
 
+.table-data tbody tr td {
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #E2D784;
+    color: #E2D784;
+    text-transform: uppercase;
+}
+
 .table-data .table td {
     border-top: none;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #E2D784;
     padding-top: 23px;
     padding-bottom: 33px;
     padding-left: 40px;
@@ -4537,7 +4550,7 @@ section {
 }
 
 .table-data2.table tbody {
-    background: #fff;
+    background: #E2D784;
 }
 
 .table-data2.table tbody tr td:first-child {
@@ -4663,7 +4676,7 @@ section {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    background: #e5e5e5;
+    background: #E2D784;
     margin-right: 5px;
 }
 
@@ -4710,7 +4723,7 @@ section {
 
 .table-data3 thead tr th {
     font-size: 16px;
-    color: #fff;
+    color: #E2D784;
     font-weight: 400;
     text-transform: capitalize;
     padding: 18px 40px;
@@ -4740,8 +4753,8 @@ section {
 }
 
 .table-data3 tbody tr {
-    border-left: 1px solid #e5e5e5;
-    border-right: 1px solid #e5e5e5;
+    border-left: 1px solid #E2D784;
+    border-right: 1px solid #E2D784;
 }
 
 .table-data3 tbody tr:last-child td:first-child {
@@ -4757,8 +4770,8 @@ section {
 }
 
 .table-data3 tbody td {
-    border-bottom: 1px solid #f5f5f5;
-    background: #fff;
+    border-bottom: 1px solid #E2D784;
+    background: #E2D784;
     font-size: 14px;
     color: #808080;
     padding: 12px 40px;

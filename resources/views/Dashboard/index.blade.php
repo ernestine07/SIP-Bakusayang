@@ -180,7 +180,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>Copyright © Ernestine Zefanya</p>
+                                <p>Copyright © -</p>
                             </div>
                         </div>
                     </div>

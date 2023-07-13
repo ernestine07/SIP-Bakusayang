@@ -52,6 +52,8 @@
                         <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
                         <li class="nav-item"><a class="nav-link" href="#comment">Komentar</a></li>
                         <li class="nav-item"><a class="nav-link" href="#contact">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{url('login')}}">Login</a></li>
+                        {{-- <a class="btn btn-primary btn-xl" href="{{url('login')}}">Login</a> --}}
                     </ul>
                 </div>
             </div>
@@ -65,7 +67,7 @@
                             <h1 class="text-white font-weight-bold">Selamat Datang di KopiBakusayang</h1>
                             <hr class="divider">
                             <p class="text-white mb-5">'Bukan Lagi Suka, Tapi Udah Sayang'
-                            <br><a class="btn btn-primary btn-xl" href="{{url('login')}}">Login</a></p>
+                            {{-- <br><a class="btn btn-primary btn-xl" href="{{url('login')}}">Login</a></p> --}}
                         </div>
                         <!--slide foto-->
                         <div class="col-md-6">
@@ -203,7 +205,7 @@
         </section>     
         <!-- Footer-->
         <footer class="bg-light py-5">
-            <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by Ernestine Zefanya</div></div>
+            <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by -</div></div>
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

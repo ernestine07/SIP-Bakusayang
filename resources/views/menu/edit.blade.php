@@ -53,7 +53,7 @@
                             <div class="card-header">
                                 <h2>Edit Menu</h2>
                             </div>
-                            <div class="card">
+                            {{-- <div class="card"> --}}
                                 <div class="card-body card-block">
                                     <form action="{{route('menu.update', $data->id)}}" method="POST" enctype="multipart/form-data">
                                         @method('PUT')
@@ -111,7 +111,7 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                         </div>
                     </div>
                 </div>

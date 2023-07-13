@@ -49,9 +49,9 @@
           <div class="container-fluid">
           <div class="row">
             <div class="col">
-              <div class="card card-primary card-outline">
+              {{-- <div class="card card-primary card-outline"> --}}
                 <div class="card-header">
-                  <h3 class="card-title">Laporan Keuangan</h3>
+                  <h3>Laporan Keuangan</h3>
                 </div>
                 @if (Auth::User()->role->nama_role=='Admin')
                 <div class="card-footer">
@@ -64,27 +64,22 @@
                   <div class="row">
                     <div class="col col-lg-4 col-md-4">
                       <h4 class="text-center">Ringkasan Transaksi</h4>
-                      <!-- cetak totalnya -->
-                      <?php
-                       
-                      ?>
-                      <!-- end cetak totalnya -->
-                      <table class="table table-bordered">
-                        <tbody>
-                          <tr>
-                            <td>Total Keuangan</td>
-                            <td>Rp. {{ number_format($total, 2) }}</td>
-                          </tr>
-                          <tr>
-                            <td>Total Transaksi</td>
-                            <td>{{ $totaltransaksi }} Transaksi</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                        <table class="table table-bordered">
+                          <tbody>
+                            <tr>
+                              <td>Total Keuangan</td>
+                              <td>Rp. {{ number_format($total, 2) }}</td>
+                            </tr>
+                            <tr>
+                              <td>Total Transaksi</td>
+                              <td>{{ $totaltransaksi }} Transaksi</td>
+                            </tr>
+                          </tbody>
+                        </table>
                     </div>
                     <div class="col col-lg-8 col-md-8">
                       <h4 class="text-center">Rincian Transaksi</h4>
-                      <div class="table-responsive">
+                      <div class="table-responsive table-data">
                         <table class="table table-stripped" id="data_user">
                           <thead>
                             <tr>
@@ -117,7 +112,7 @@
                     </div>
                   </div>
                 </div>                
-              </div>
+              {{-- </div> --}}
             </div>
           </div>
           </div>

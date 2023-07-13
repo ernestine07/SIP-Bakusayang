@@ -49,7 +49,7 @@
           <div class="container-fluid">
           <div class="row">
             <div class="col">
-              <div class="card card-primary card-outline">
+              {{-- <div class="card card-primary card-outline"> --}}
                 <div class="card-header">
                     <h3 class="card-title">Laporan Penjualan</h3>
                   </div>
@@ -80,7 +80,7 @@
                       </div>
                       <div class="col col-lg-8 col-md-8">
                         <h4 class="text-center">Rincian Penjualan</h4>
-                        <div class="table-responsive">
+                        <div class="table-responsive table-data">
                           <table class="table table-stripped"  id="data_user">
                             <thead>
                               <tr>
@@ -123,7 +123,7 @@
                       </div>
                     </div>
                   </div>
-              </div>
+              {{-- </div> --}}
             </div>
           </div>
           </div>

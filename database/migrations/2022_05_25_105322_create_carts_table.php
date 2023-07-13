@@ -16,7 +16,8 @@ class CreateCartsTable extends Migration
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('menu_id')->unsigned();
-            $table->float('qty', 12, 2)->default(0);
+            // $table->float('qty', 12, 2)->default(0);
+            $table->unsignedInteger('qty')->default(0);
             // $table->double('diskon', 12, 2)->default(0);
             $table->double('total', 12, 2)->default(0);
             // $table->string('nama_cust')->nullable(); // nama pelanggan yang pesan

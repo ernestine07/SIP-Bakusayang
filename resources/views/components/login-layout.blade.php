@@ -42,7 +42,7 @@
                 {{$slot}}
             </div>
             <div class="container justify-content-center align-items-center h-100">
-                <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by Ernestine Zefanya</div></div>
+                <div class="container px-4 px-lg-5"><div class="small text-center nav-item">Copyright by -</div></div>
             </div>
         </div>  
     </div>
