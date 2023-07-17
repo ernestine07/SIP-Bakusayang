@@ -339,8 +339,22 @@
                         <li>
                             <a href="{{url('Datauser')}}">Data User</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('laporan.index')}}">Laporan</a>
+                        </li> --}}
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">Laporan</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a class="nav-link " href="{{ route('laporan.proses_keuangan')}}">Keuangan</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="{{ route('laporan.penjualan')}}">Penjualan</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link" href="{{ route('laporan.stok_barang')}}">Stok Barang</a>
+                                    </li>
+                                </ul>
                         </li>
                     </ul>
                 </nav>

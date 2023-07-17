@@ -88,7 +88,7 @@
                                                 <label for="text-input" class=" form-control-label">Email<sup class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-12 col-md-9">
-                                                <input type="text" id="text-input" name="email" placeholder="Text" class="form-control">
+                                                <input type="email" id="text-input" name="email" placeholder="Text" class="form-control">
                                                 <div class="text-danger">
                                                     @error('email')
                                                         {{ $message }}

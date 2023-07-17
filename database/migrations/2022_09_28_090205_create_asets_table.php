@@ -14,10 +14,10 @@ class CreateAsetsTable extends Migration
     public function up()
     {
         Schema::create('asets', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_barang');
-            $table->string('stok');
-            $table->timestamp('tanggal')->nullable();
+            $table->tinyInteger('id', true, true);
+            $table->string('nama_barang', 15);
+            $table->tinyInteger('stok');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

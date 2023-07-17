@@ -3032,8 +3032,8 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #05595B;
-  border-color: #05595B;
+  background-color: #A1CCD1;
+  border-color: #A1CCD1;
 }
 .btn-primary:hover {
   color: #fff;
@@ -3984,8 +3984,8 @@ textarea.form-control-lg {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #fff;
-  border-color: #dee2e6 #dee2e6 #fff;
+  background-color: #000000;
+  border-color: #000000 #000000 #000000;
 }
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
@@ -4262,7 +4262,7 @@ textarea.form-control-lg {
     z-index: 1000;
     flex-grow: 1;
     visibility: visible !important;
-    background-color:  #05595B;
+    background-color:  #A1CCD1;
     border-right: 0;
     border-left: 0;
     transition: none;
@@ -7763,7 +7763,7 @@ textarea.form-control-lg {
 
 .text-white {
   --bs-text-opacity: 1;
-  color:  #05595B !important;
+  color:  #000000 !important;
 }
 
 .text-body {
@@ -7809,7 +7809,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color:#05595B !important;
+  background-color:#A1CCD1 !important;
 }
 
 .bg-secondary {
@@ -7839,7 +7839,7 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color:  #05595B !important;
+  background-color:  #A1CCD1 !important;
 }
 
 .bg-dark {
@@ -11300,11 +11300,11 @@ body {
 
 .page-section {
   padding: 8rem 0;
-  background-color: #05595B;
+  background-color: #A1CCD1;
 }
 
 .text-white-75 {
-  color:  #05595B !important;
+  color:  #A1CCD1 !important;
 }
 
 .btn-xl {
@@ -11320,7 +11320,7 @@ hr.divider {
   height: 0.2rem;
   max-width: 3.25rem;
   margin: 1.5rem auto;
-  background-color: #05595B;
+  background-color: #A1CCD1;
   opacity: 1;
 }
 
@@ -11330,7 +11330,7 @@ hr.divider-light {
 
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  background-color:  #05595B;
+  background-color:  #A1CCD1;
   transition: background-color 0.2s ease;
 }
 #mainNav .navbar-brand {
@@ -11354,7 +11354,7 @@ hr.divider-light {
 @media (min-width: 992px) {
   #mainNav {
     box-shadow: none;
-    background-color: #05595B;
+    background-color: #A1CCD1;
     /* background-color:rgba(0, 0, 0, 0.5);   */
   }
   #mainNav .navbar-brand {
@@ -11368,7 +11368,7 @@ hr.divider-light {
     padding: 0 1rem;
   }
   #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: #fff;
+    color: #000000;
   }
   #mainNav .navbar-nav .nav-item:last-child .nav-link {
     padding-right: 0;
@@ -11394,7 +11394,7 @@ hr.divider-light {
 header.masthead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background-color: #E2D784;
+  background-color: #F5F5F5;
   /* background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/bg-masthead.jpg"); */
   background-position: center;
   background-repeat: no-repeat;
@@ -11402,7 +11402,7 @@ header.masthead {
   background-size: cover;
 }
 .contact{
-  background-color: #E2D784;
+  background-color: #F5F5F5;
 }
 header.masthead h1, header.masthead .h1 {
   font-size: 2.25rem;

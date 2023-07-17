@@ -53,13 +53,13 @@
                 <div class="card-header">
                   <h3>Laporan Keuangan</h3>
                 </div>
-                @if (Auth::User()->role->nama_role=='Admin')
+                {{-- @if (Auth::User()->role->nama_role=='Admin')
                 <div class="card-footer">
                   <a href="{{ route('laporan.index') }}" class="btn btn-sm btn-danger">
                     Tutup
                   </a>
                 </div>
-                @endif
+                @endif --}}
                 <div class="card-body">
                   <div class="row">
                     <div class="col col-lg-4 col-md-4">

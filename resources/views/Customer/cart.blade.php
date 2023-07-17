@@ -85,7 +85,7 @@
                                                         class="text-danger">*</sup></label>
                                             </div>
                                             <div class="col-2">
-                                                <input type="number" id="text-input" name="qty" placeholder="0"
+                                                <input type="number" id="text-input" name="qty" placeholder="0" min
                                                     class="form-control">
                                                 <div class="text-danger">
                                                     @error('qty')

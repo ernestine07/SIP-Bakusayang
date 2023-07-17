@@ -186,7 +186,7 @@
                         <h2 class="text-white-50 mt-0">Hubungi Kami</h2>
                         <hr class="divider divider-light" />
                         <p class="text-white-50 mb-4">
-                            Opr. hours: 11.00-22.00</br>
+                            Jam Operasional: 11.00-22.00</br>
                             Lokasi : MT haryono sebrang mandau mitshubishi</br>
                             Email  : a.bakus@gmail.com</br>
                             Telephone   : 08521361xxxx</br>

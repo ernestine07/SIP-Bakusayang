@@ -50,8 +50,8 @@
                     </form>
                     <div class="register-link">
                         <p>
-                            Don't you have account?
-                            <a href="{{url('register_customer')}}">Sign Up Here</a>
+                            Belum punya akun?
+                            <a href="{{url('register_customer')}}">Registrasi Disini</a>
                         </p>
                     </div>
                 </div>

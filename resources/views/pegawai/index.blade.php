@@ -63,8 +63,8 @@
                                 <h2>Data Pegawai</h2>
                                 @if (Auth::User()->role->nama_role=='Admin')
                                 <div class="card-body">
-                                    <button type="button" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-plus"></i> <a href="{{route('pegawai.create')}}"> Tambah Pegawai</a>
+                                    <button type="button" class="btn btn-primary btn-sm" href="{{route('pegawai.create')}}">
+                                    <i class="fa fa-plus"></i> Tambah Pegawai
                                     </button>
                                 </div>
                                 @endif

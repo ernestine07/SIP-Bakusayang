@@ -14,15 +14,17 @@ class CreateCartsTable extends Migration
     public function up()
     {
         Schema::create('cart', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('menu_id')->unsigned();
+            $table->smallInteger('id', true, true);
+            $table->smallInteger('menu_id')->unsigned();
+            $table->smallInteger('user_id')->unsigned();
             // $table->float('qty', 12, 2)->default(0);
-            $table->unsignedInteger('qty')->default(0);
+            $table->tinyInteger('qty');
             // $table->double('diskon', 12, 2)->default(0);
-            $table->double('total', 12, 2)->default(0);
+            $table->integer('total', false, true);
             // $table->string('nama_cust')->nullable(); // nama pelanggan yang pesan
             // $table->string('status_cart')->nullable(); // ada 2 yaitu cart, checkout
             $table->foreign('menu_id')->references('id')->on('menu');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

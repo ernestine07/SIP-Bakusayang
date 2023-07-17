@@ -14,11 +14,11 @@ class CreateMenusTable extends Migration
     public function up()
     {
         Schema::create('menu', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_menu');
-            $table->bigInteger('kategori_id')->unsigned();
-            $table->string('harga');
-            $table->string('foto_produk')->nullable();
+            $table->smallInteger('id', true, true);
+            $table->string('nama_menu', 25);
+            $table->tinyInteger('kategori_id')->unsigned();
+            $table->smallInteger('harga');
+            $table->string('foto_produk', 50)->nullable();
             $table->timestamps();
             $table->foreign('kategori_id')->references('id')->on('kategoris');
         });

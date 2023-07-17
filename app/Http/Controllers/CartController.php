@@ -20,7 +20,7 @@ class CartController extends Controller
      */
     public function index(Request $request)
     {
-        $data = Cart::all();
+        $data = Cart::where('user_id', auth()->id())->get();
         $menu = menu::all();
         $totalSubTotal = Cart::get()->sum('total');
         // dd($total);
@@ -64,6 +64,7 @@ class CartController extends Controller
             'tanggal'=>$request->tanggal,
             'menu_id'=>$request->menu_id,
             'nama_cust'=>$request->nama_cust,
+            'user_id'=>auth()->id(),
             'qty'=>$request->qty,
             'status_cart'=>$request->status_cart,
             'status_order'=>$request->status_order,
@@ -138,6 +139,7 @@ class CartController extends Controller
             'menu_id'=>$request->menu_id,
             'nama_cust'=>$request->nama_cust,
             'qty'=>$request->qty,
+            'user_id'=>auth()->id(),
             'status_cart'=>$request->status_cart,
             'status_order'=>$request->status_order,
             'total'=> $request->qty * $menu->harga,

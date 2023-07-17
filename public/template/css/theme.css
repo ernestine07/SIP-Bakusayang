@@ -69,7 +69,7 @@ input, textarea {
 
 button {
     border: none;
-    background: none;
+    background: #7C9D96;
 }
 
 img {
@@ -115,7 +115,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #333333;
+    color: #000000;
     font-weight: 700;
     margin: 0;
     line-height: 1.2;
@@ -278,23 +278,23 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
-    background: #05595B;
+    background: #A1CCD1;
     padding-bottom: 20vh;
 }
 
 .landing-page{
-    background: #E2D784;
+    background: #A1CCD1;
 }
 
 @media (max-width: 991px) {
     .page-wrapper {
     overflow: hidden;
-    background: #062C30;
+    background: #F4F2DE;
     padding-bottom: 12vh;
 }
 }
 .page-container {
-    background: #E2D784;
+    background: #A1CCD1;
     padding-left: 300px;
 }
 
@@ -307,7 +307,7 @@ section {
 }
 
 .page-container2 {
-    background: #f2f2f2;
+    background: #A1CCD1;
     padding-left: 300px;
 }
 
@@ -319,7 +319,7 @@ section {
 }
 
 .page-container3 {
-    background: #f7f7f7;
+    background: #A1CCD1;
 }
 
 .main-content {
@@ -335,11 +335,11 @@ section {
 }
 
 .page-content--bgf7 {
-    background: #062C30;
+    background: #A1CCD1;
 }
 
 .page-content--bge5 {
-    background: #05595B;
+    background: #A1CCD1;
     overflow: auto;
 }
 
@@ -392,7 +392,7 @@ section {
 }
 
 .login-content {
-    background: #E2D784;
+    background: #F4F2DE;
     padding: 30px 30px 20px;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
@@ -458,7 +458,7 @@ section {
     line-height: 45px;
     padding: 0 35px;
     text-transform: uppercase;
-    color: #fff;
+    color: #000000;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -532,7 +532,7 @@ section {
     transform: translate(-50%, -50%);
     font-size: 15px;
     font-weight: 500;
-    color: #fff;
+    color: #000000;
 }
 
 .au-btn-plus:hover {
@@ -540,7 +540,7 @@ section {
 }
 
 .au-btn-load {
-    background: #808080;
+    background: #7C9D96;
     padding: 0 40px;
     font-size: 15px;
     color: #fff;
@@ -841,21 +841,21 @@ section {
     right: 0;
     min-width: 65px;
     line-height: 43px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #000000;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background: #4272d7;
+    background: #7C9D96;
     margin-left: -3px;
 }
 
 .au-btn--submit:hover {
-    background: #3868cd;
+    background: #7C9D96;
 }
 
 .au-btn--submit > i {
     font-size: 20px;
-    color: #fff;
+    color: #000000;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1162,6 +1162,7 @@ section {
 
 .card {
     margin-bottom: 30px;
+    background-color: #A1CCD1;
 }
 
 .input-group-addon {
@@ -1191,7 +1192,7 @@ section {
 
 /* ----- Header ----- */
 .header-desktop {
-    background: #E2D784;
+    background: #F4F2DE;
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
@@ -1594,12 +1595,12 @@ section {
     left: 0;
     top: 0;
     bottom: 0;
-    background: #05595B;
+    background: #7C9D96;
     overflow-y: auto;
 }
 
 .menu-sidebar .logo {
-    background: #E2D784;
+    background: #F4F2DE;
     height: 75px;
     padding: 0 35px;
     display: -webkit-box;
@@ -1643,7 +1644,7 @@ section {
 
 .navbar-sidebar .navbar__list li a {
     display: block;
-    color: #E2D784;
+    color: #F4F2DE;
     font-size: 16px;
     padding: 15px 0;
 }
@@ -1669,7 +1670,7 @@ section {
     top: 0;
     left: 0;
     right: 0;
-    background: #E2D784;
+    background: #F4F2DE;
 }
 
 .header-mobile .header-mobile__bar {
@@ -1700,7 +1701,7 @@ section {
     padding: 0;
     line-height: 1;
     vertical-align: top;
-    background: #05595B;
+    background: #A1CCD1;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -1752,7 +1753,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list {
-    background: #E2D784;
+    background: #F4F2DE;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list > li > a {
@@ -3165,27 +3166,27 @@ section {
 }
 
 .overview-item--c1 {
-    background-image: -moz-linear-gradient(90deg, #11998e 0%, #05595B 100%);
-    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #05595B 100%);
-    background-image: -ms-linear-gradient(90deg, #11998e     0%, #05595B 100%);
+    background-image: -moz-linear-gradient(90deg, #11998e 0%, #A1CCD1 100%);
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #A1CCD1 100%);
+    background-image: -ms-linear-gradient(90deg, #11998e     0%, #A1CCD1 100%);
 }
 
 .overview-item--c2 {
-    background-image: -moz-linear-gradient(90deg, #05595B 0%, #11998e 100%);
-    background-image: -webkit-linear-gradient(90deg, #05595B 0%, #11998e 100%);
-    background-image: -ms-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -moz-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
+    background-image: -webkit-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
+    background-image: -ms-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
 }
 
 .overview-item--c3 {
-    background-image: -moz-linear-gradient(90deg,  #11998e 0%, #05595B 100%);
-    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #05595B 100%);
-    background-image: -ms-linear-gradient(90deg, #11998e 0%, #05595B 100%);
+    background-image: -moz-linear-gradient(90deg,  #11998e 0%, #A1CCD1 100%);
+    background-image: -webkit-linear-gradient(90deg, #11998e 0%, #A1CCD1 100%);
+    background-image: -ms-linear-gradient(90deg, #11998e 0%, #A1CCD1 100%);
 }
 
 .overview-item--c4 {
-    background-image: -moz-linear-gradient(90deg, #05595B 0%, #11998e 100%);
-    background-image: -webkit-linear-gradient(90deg, #05595B 0%, #11998e 100%);
-    background-image: -ms-linear-gradient(90deg, #05595B 0%, #11998e 100%);
+    background-image: -moz-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
+    background-image: -webkit-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
+    background-image: -ms-linear-gradient(90deg, #A1CCD1 0%, #11998e 100%);
 }
 
 .overview-box .icon {
@@ -3196,7 +3197,7 @@ section {
 
 .overview-box .icon i {
     font-size: 60px;
-    color: #fff;
+    color: #000000;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -3222,7 +3223,7 @@ section {
 
 .overview-box .text h2 {
     font-weight: 300;
-    color: #fff;
+    color: #000000;
     font-size: 36px;
     line-height: 1;
     margin-bottom: 5px;
@@ -3230,7 +3231,7 @@ section {
 
 .overview-box .text span {
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.6);
+    color: #000000;
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -3277,7 +3278,7 @@ section {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    background: #fff;
+    background: #A1CCD1;
     overflow: hidden;
 }
 
@@ -3299,7 +3300,7 @@ section {
 }
 
 .btn-primary {
-    background-color: #05595B
+    background-color: #7C9D96
 }
 
 .au-card--border {
@@ -3391,12 +3392,12 @@ section {
 .au-card-title h3 {
     position: relative;
     z-index: 2;
-    color: #fff;
+    color: #000000;
     font-weight: 400;
 }
 
 .au-card-title h3 i {
-    color: #fff;
+    color: #000000;
     font-size: 24px;
     margin-right: 12px;
 }
@@ -3424,7 +3425,7 @@ section {
     padding: 27px 15px;
     padding-left: 40px;
     padding-bottom: 22px;
-    border-bottom: 1px solid #f2f2f2;
+    border-bottom: 1px solid #000000;
     font-size: 14px;
 }
 
@@ -3458,7 +3459,7 @@ section {
 
 .au-task__item-inner .task a {
     font-size: 16px;
-    color: #808080;
+    color: #000000;
     font-weight: 400;
 }
 
@@ -3468,7 +3469,7 @@ section {
 
 .au-task__item-inner .time {
     font-size: 14px;
-    color: #555;
+    color: #000000;
     text-transform: uppercase;
     font-weight: 600;
 }
@@ -3594,7 +3595,7 @@ section {
 
 .au-message__item-time span {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
 }
 
 .au-message__item-text .text {
@@ -3606,7 +3607,7 @@ section {
 .au-message__item-text .text .name {
     font-size: 16px;
     font-weight: 600;
-    color: #666;
+    color: #000000;
     margin-bottom: 2px;
 }
 
@@ -3734,7 +3735,7 @@ section {
 .au-chat-info .nick a {
     font-weight: 600;
     font-size: 16px;
-    color: #333;
+    color: #000000;
 }
 
 .au-chat-info .nick a:hover {
@@ -3783,7 +3784,7 @@ section {
 
 .mess-time {
     font-size: 14px;
-    color: #999;
+    color: #000000;
 }
 
 .recei-mess-wrap {
@@ -4129,7 +4130,7 @@ section {
 
 .chart-statis .index {
     font-size: 18px;
-    color: #333;
+    color: #000000;
 }
 
 .recent-report__chart canvas {
@@ -4220,12 +4221,12 @@ section {
 
 .statistic-chart-1-note span {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
 }
 
 .statistic-chart-1-note .big {
     font-size: 18px;
-    color: #393939;
+    color: #000000;
 }
 
 .top-campaign {
@@ -4259,7 +4260,7 @@ section {
 /* ----- Table ----- */
 .table {
     margin: 0;
-    background: #E2D784;
+    background: #F4F2DE;
 }
 
 /* tbody {
@@ -4278,7 +4279,7 @@ section {
 .table-earning thead th {
     background: #333;
     font-size: 16px;
-    color: #fff;
+    color: #F4F2DE;
     vertical-align: middle;
     font-weight: 400;
     text-transform: capitalize;
@@ -4293,7 +4294,7 @@ section {
 }
 
 .table-earning tbody td {
-    color: #808080;
+    color: #F4F2DE;
     padding: 12px 40px;
     white-space: nowrap;
 }
@@ -4309,17 +4310,17 @@ section {
 }
 
 .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #E2D784;
+    background-color: #F4F2DE;
 }
 
 .table-striped tbody tr:nth-of-type(even) {
-    background-color: #E2D784;
+    background-color: #F4F2DE;
 }
 
 .table-top-countries tbody td {
     white-space: nowrap;
     font-size: 14px;
-    color: #E2D784;
+    color: #F4F2DE;
     padding: 14px 5px;
     border-top: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -4381,7 +4382,7 @@ section {
 
 .table-style1 .table td {
     font-size: 14px;
-    color: #808080;
+    color: #F4F2DE;
     border-top: none;
     border-bottom: 1px solid #f2f2f2;
     padding: 12px 6px;
@@ -4396,21 +4397,22 @@ section {
 .table-data thead tr td {
     font-size: 12px;
     font-weight: 600;
-    color: #808080;
+    background-color: #A1CCD1;
+    color: #000000;
     text-transform: uppercase;
 }
 
 .table-data tbody tr td {
     font-size: 12px;
     font-weight: 600;
-    background-color: #E2D784;
-    color: #E2D784;
+    background-color: #A1CCD1;
+    color: #000000;
     text-transform: uppercase;
 }
 
 .table-data .table td {
     border-top: none;
-    border-bottom: 1px solid #E2D784;
+    border-bottom: 1px solid #F4F2DE;
     padding-top: 23px;
     padding-bottom: 33px;
     padding-left: 40px;
@@ -4431,14 +4433,14 @@ section {
 
 .table-data__info h6 {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     text-transform: capitalize;
     font-weight: 400;
 }
 
 .table-data__info span a {
     font-size: 12px;
-    color: #999;
+    color: #000000;
 }
 
 .table-data__info span a:hover {
@@ -4450,7 +4452,7 @@ section {
     cursor: pointer;
     width: 30px;
     height: 30px;
-    background: #e5e5e5;
+    background: #A1CCD1;
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
@@ -4468,7 +4470,7 @@ section {
 
 .more i {
     font-size: 20px;
-    color: #808080;
+    color: #000000;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -4483,17 +4485,17 @@ section {
     display: inline-block;
     line-height: 30px;
     font-size: 14px;
-    color: #fff;
+    color: #000000;
     padding: 0 15px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
     text-transform: capitalize;
 }
-
+/* 
 .role.admin {
     background: #fa4251;
-}
+} */
 
 .role.user {
     background: #00b5e9;
@@ -4536,7 +4538,7 @@ section {
 
 .table-data2.table thead th {
     font-size: 12px;
-    color: #555;
+    color: #000000;
     text-transform: uppercase;
     border: none;
     font-weight: 600;
@@ -4550,7 +4552,7 @@ section {
 }
 
 .table-data2.table tbody {
-    background: #E2D784;
+    background: #F4F2DE;
 }
 
 .table-data2.table tbody tr td:first-child {
@@ -4589,7 +4591,7 @@ section {
 
 .table-data2.table tbody td {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     vertical-align: middle;
     padding: 25px 40px;
     padding-right: 10px;
@@ -4676,7 +4678,7 @@ section {
     -webkit-border-radius: 100%;
     -moz-border-radius: 100%;
     border-radius: 100%;
-    background: #E2D784;
+    background: #F4F2DE;
     margin-right: 5px;
 }
 
@@ -4686,7 +4688,7 @@ section {
 
 .table-data-feature .item i {
     font-size: 20px;
-    color: #808080;
+    color: #000000;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -4699,7 +4701,7 @@ section {
 
 .block-email {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     display: inline-block;
     background: #f2f2f2;
     -webkit-border-radius: 2px;
@@ -4723,7 +4725,7 @@ section {
 
 .table-data3 thead tr th {
     font-size: 16px;
-    color: #E2D784;
+    color: #000000;
     font-weight: 400;
     text-transform: capitalize;
     padding: 18px 40px;
@@ -4753,8 +4755,8 @@ section {
 }
 
 .table-data3 tbody tr {
-    border-left: 1px solid #E2D784;
-    border-right: 1px solid #E2D784;
+    border-left: 1px solid #F4F2DE;
+    border-right: 1px solid #F4F2DE;
 }
 
 .table-data3 tbody tr:last-child td:first-child {
@@ -4770,10 +4772,10 @@ section {
 }
 
 .table-data3 tbody td {
-    border-bottom: 1px solid #E2D784;
-    background: #E2D784;
+    border-bottom: 1px solid #F4F2DE;
+    background: #F4F2DE;
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     padding: 12px 40px;
     padding-right: 10px;
 }
@@ -4795,7 +4797,7 @@ section {
 
 .copyright p {
     font-size: 14px;
-    color: #666;
+    color: #000000;
     line-height: -webkit-calc(24/14);
     line-height: -moz-calc(24/14);
     line-height: calc(24/14);
@@ -4877,7 +4879,7 @@ section {
 
 .au-breadcrumb-span {
     font-size: 14px;
-    color: #999;
+    color: #000000;
     display: inline-block;
 }
 
@@ -4888,7 +4890,7 @@ section {
 
 .au-breadcrumb__list li {
     font-size: 14px;
-    color: #999;
+    color: #000000;
 }
 
 .au-breadcrumb__list .list-inline-item:not(:last-child) {
@@ -5004,7 +5006,7 @@ section {
 
 .welcome2-greeting p {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
 }
 
 /* ----- Statistic ----- */
@@ -5044,7 +5046,7 @@ section {
     font-size: 18px;
     text-transform: uppercase;
     font-weight: 300;
-    color: rgba(128, 128, 128, 0.6);
+    color: 000000(128, 128, 128, 0.6);
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -5062,7 +5064,7 @@ section {
 
 .statistic__item .icon i {
     font-size: 180px;
-    color: #808080;
+    color: #000000;
     opacity: .2;
     line-height: 1;
     vertical-align: baseline;
@@ -5136,14 +5138,14 @@ section {
 
 .au-progress__title {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     display: inline-block;
     margin-bottom: 9px;
 }
 
 .au-progress__value {
     font-size: 14px;
-    color: #808080;
+    color: #000000;
     position: absolute;
     top: -28px;
     right: -15px;
@@ -5186,7 +5188,7 @@ section {
 
 .au-alert .content {
     font-size: 16px;
-    color: #808080;
+    color: #000000;
 }
 
 .au-alert-success {
@@ -14684,7 +14686,7 @@ section {
 
 .comment{
     border: 1px solid rgba(16, 46, 46, 1);
-    background-color:#E2D784;
+    background-color:#F4F2DE;
     float: left;
     border-radius: 5px;
     padding-left: 40px;

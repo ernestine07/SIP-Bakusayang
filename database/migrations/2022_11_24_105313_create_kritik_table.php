@@ -14,9 +14,9 @@ class CreateKritikTable extends Migration
     public function up()
     {
         Schema::create('kritik', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('pesan');
+            $table->integer('id', true, true);
+            $table->string('nama', 25);
+            $table->text('pesan');
             $table->timestamps();
         });
     }

@@ -53,13 +53,13 @@
                 <div class="card-header">
                     <h3 class="card-title">Laporan Penjualan</h3>
                   </div>
-                  @if (Auth::User()->role->nama_role=='Admin')
+                  {{-- @if (Auth::User()->role->nama_role=='Admin')
                   <div class="card-footer">
                     <a href="{{ route('laporan.index') }}" class="btn btn-sm btn-danger">
                       Tutup
                     </a>
                   </div>
-                  @endif
+                  @endif --}}
                   <div class="card-body">
                     {{-- <h3 class="text-center">Periode Bulan Januari 2021</h3> --}}
                     <div class="row">

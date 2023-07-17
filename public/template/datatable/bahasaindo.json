@@ -1,0 +1,18 @@
+{
+	"sProcessing":     "Proses...",
+	"sLengthMenu":     "Menampilkan _MENU_ Data",
+	"sEmptyTable":     "Tidak ada Data",
+	"sInfo":           "Total user _TOTAL_ akun",
+	"sInfoEmpty":      "_TOTAL_ Data",
+	"sInfoPostFix":    "",
+	"sSearch":         "Cari:",
+	"sUrl":            "",
+	"sInfoThousands":  ",",
+	"sLoadingRecords": "Memuat...",
+	"oPaginate": {
+		"sFirst":    "Pertama",
+		"sLast":     "Terakhir",
+		"sNext":     "Selanjutnya",
+		"sPrevious": "Sebelumnya"
+	}
+}

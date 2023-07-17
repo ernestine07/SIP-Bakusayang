@@ -84,9 +84,34 @@
                     dom: 'Bfrtip',
                     buttons: [
                         'excel',
-                    ]
+                    ],
+                    aoColumnDefs: [
+                {"aTargets": [0], "bSortable": true},
+                {"aTargets": [2], "asSorting": ["asc"], "bSortable": true},
+            ],
+            "language": {
+                "url": "{{asset('template/datatable/bahasaindo.json')}}"
+            }
                 } );
             } );
+            // var table = new DataTable('#data_user', {
+            //     language: {
+            //         // url: '//cdn.datatables.net/plug-ins/1.13.5/i18n/id.json',
+            //         url: 'https://cdn.datatables.net/plug-ins/1.13.5/i18n/id.json',
+            //     },
+            // });
+    //         $(document).ready(function ()
+    // // DataTable
+    //     var table = $('#data_user').DataTable({
+    //         aoColumnDefs: [
+    //             {"aTargets": [0], "bSortable": true},
+    //             {"aTargets": [2], "asSorting": ["asc"], "bSortable": true},
+    //         ],
+    //         "language": {
+    //             "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+    //         }
+        
+    // }));
         </script>
 
 </body>

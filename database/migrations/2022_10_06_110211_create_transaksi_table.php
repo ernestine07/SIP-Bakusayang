@@ -14,16 +14,16 @@ class CreateTransaksiTable extends Migration
     public function up()
     {
         Schema::create('transaksi', function (Blueprint $table) {
-            $table->increments('id');
-            $table->bigInteger('users_id')->unsigned();
-            $table->string('no_invoice');
-            $table->string('menu');
-            $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('nama_pelanggan');
+            $table->smallInteger('id', true, true);
+            $table->smallInteger('users_id')->unsigned()->nullable();
+            $table->string('no_invoice', 10);
+            $table->string('menu', 50);
+            $table->foreign('users_id')->references('id')->on('users')->onDelete('set null');
+            $table->string('nama_pelanggan', 10);
             $table->enum('status_pembayaran',['Lunas','Pending'])->default('Pending');// ada 2 sudah dan belum
             $table->enum('status_order',['Takeaway','Dinein'])->default('Dinein');// ada 2 Take away dan Dinein
-            $table->double('subtotal', 12, 2)->default(0);
-            $table->double('diskon', 12, 2)->default(0);
+            $table->integer('total', false, true)->default(0);
+            $table->integer('diskon', false, true)->default(0);
             $table->timestamps();
         });
     }
