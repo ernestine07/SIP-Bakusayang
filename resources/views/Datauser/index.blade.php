@@ -63,9 +63,9 @@
                                 <h2>Data User</h2>
                                 @if (Auth::User()->role->nama_role=='Admin')
                                 <div class="card-body">
-                                    <a href="{{route('Datauser.create')}}">
                                     <button type="button" class="btn btn-primary btn-sm">
-                                    <i class="fa fa-plus"></i>Tambah Data</a>
+                                    <i class="fa fa-plus"></i><a href="{{route('Datauser.create')}}">
+                                        Tambah Data</a>
                                     </button> 
                                 </div>
                                 @endif
