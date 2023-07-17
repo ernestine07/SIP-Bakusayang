@@ -128,6 +128,7 @@ Route::group(['middleware' => ['auth','cekrole:Admin,Aset']], function(){
     Route::resource('menu', MenuController::class);
     Route::post('/tambah-menu-post', [MenuController::class, 'store'])->name('menu');
     Route::post('/tambah-pegawai-post', [PegawaiController::class, 'create'])->name('pegawai');
+    // Route::post('/tambah-user-post', [DatauserController::class, 'create'])->name('user');
     Route::resource('pegawai', PegawaiController::class);
     Route::resource('Kategori', KategoriController::class);
     Route::resource('Datauser', DatauserController::class);
